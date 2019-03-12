@@ -12,7 +12,7 @@ export class ListPage extends React.Component {
     constructor(props) {
         super(props);
         this.state = {
-            data: []
+            drinks: []
         };
     }
 
@@ -24,17 +24,22 @@ export class ListPage extends React.Component {
         const url = 'http://localhost:8080/cocktail/drinks/';
         const response = await fetch(url);
         const body = await response.json();
-        this.setState({ drinks: body});
+        var accumulatedDrinks = [];
+        for(var i in body) {
+            accumulatedDrinks.push(body[i]);
+        }
+        this.setState({ drinks: accumulatedDrinks});
         console.log("State:");
-        console.log(this.state.drinks);
+        console.log(this.state.drinks[0].id);
     }
 
     render() {
+        //console.log(this.state.drinks[0]);
         // <li key={drink.id}>{ drink.name }</li>
         return (
             <div>
                 <li>Hello</li>
-                {this.state.data.map((drink) => {
+                {this.state.drinks.map((drink) => {
                     return (
                     <li key={drink.id}>{drink.name}</li>
                     )

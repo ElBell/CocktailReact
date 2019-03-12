@@ -8,11 +8,6 @@
       <change afterPath="$PROJECT_DIR$/../cocktailReactNative/src/components/ListPage.js" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/../cocktailReactNative/src/components/OpeningPage.js" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/../cocktailReactNative/src/components/SearchPage.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/components/FindFavorites.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/components/OpeningPage.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/components/SearchPage.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../Cocktail-React/.gitignore" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/../Cocktail-React/README.md" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/../Cocktail-React/package-lock.json" beforeDir="false" />
@@ -50,12 +45,7 @@
       <change beforePath="$PROJECT_DIR$/../Cocktail-SpringBoot/src/main/java/ElBell/CocktailSpringBoot/Drink.java" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/../Cocktail-SpringBoot/src/main/resources/application.properties" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/../Cocktail-SpringBoot/src/test/java/ElBell/CocktailSpringBoot/CocktailApplicationTests.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/components/ListPage.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/ListPage.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/OpeningPage.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/OpeningPage.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/index.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/yarn.lock" beforeDir="false" afterPath="$PROJECT_DIR$/yarn.lock" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -68,8 +58,8 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/components/ListPage.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="272">
-              <caret line="27" column="27" selection-start-line="27" selection-start-column="27" selection-end-line="27" selection-end-column="27" />
+            <state relative-caret-position="-65">
+              <caret line="36" column="10" selection-start-line="36" selection-start-column="10" selection-end-line="36" selection-end-column="10" />
               <folding>
                 <element signature="e#0#31#0" expanded="true" />
               </folding>
@@ -163,7 +153,7 @@
   <component name="PropertiesComponent">
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
-    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1552417463933" />
+    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1552419081831" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="node.js.detected.package.eslint" value="true" />
     <property name="node.js.detected.package.standard" value="true" />
@@ -207,12 +197,12 @@
       <option name="presentableId" value="Default" />
       <updated>1552319856862</updated>
       <workItem from="1552319860888" duration="6032000" />
-      <workItem from="1552404099475" duration="8782000" />
+      <workItem from="1552404099475" duration="9662000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="14814000" />
+    <option name="totallyTimeSpent" value="15694000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="0" width="1280" height="800" extended-state="6" />
@@ -291,8 +281,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/components/ListPage.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="272">
-          <caret line="27" column="27" selection-start-line="27" selection-start-column="27" selection-end-line="27" selection-end-column="27" />
+        <state relative-caret-position="-65">
+          <caret line="36" column="10" selection-start-line="36" selection-start-column="10" selection-end-line="36" selection-end-column="10" />
           <folding>
             <element signature="e#0#31#0" expanded="true" />
           </folding>

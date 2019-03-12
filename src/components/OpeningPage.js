@@ -47,17 +47,13 @@ function ButtonRows() {
 
     return (<Container><br />
         <Row className="align-items-center">
-            <Col></Col>
             <Col>{button1}</Col>
             <Col>{button3}</Col>
-            <Col></Col>
         </Row>
         <br/>
         <Row className="align-items-center">
-            <Col></Col>
             <Col>{button2}</Col>
             <Col>{button4}</Col>
-            <Col></Col>
         </Row>
         <br /><br /><br /><br /><br /><br /><br />
 

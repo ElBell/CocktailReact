@@ -1,5 +1,5 @@
 import * as React from 'react';
-import Media from "react-media";
+import Media from "react-bootstrap/Media";
 
 //https://github.com/schrodinger/fixed-data-table-2
 //https://react.rocks/?q=search
@@ -24,24 +24,31 @@ export class ListPage extends React.Component {
         const url = 'http://localhost:8080/cocktail/drinks/';
         const response = await fetch(url);
         const body = await response.json();
-        var accumulatedDrinks = [];
-        for(var i in body) {
+        let accumulatedDrinks = [];
+        for(let i in body) {
             accumulatedDrinks.push(body[i]);
         }
+        accumulatedDrinks.sort(compare);
         this.setState({ drinks: accumulatedDrinks});
-        console.log("State:");
-        console.log(this.state.drinks[0].id);
     }
 
     render() {
-        //console.log(this.state.drinks[0]);
-        // <li key={drink.id}>{ drink.name }</li>
         return (
             <div>
-                <li>Hello</li>
                 {this.state.drinks.map((drink) => {
                     return (
-                    <li key={drink.id}>{drink.name}</li>
+                        <Media key = {drink.id} >
+                            <img
+                                width={64}
+                                height={64}
+                                className="mr-3"
+                                src= {drink.thumb}
+                                alt="Generic placeholder"
+                             />
+                            <Media.Body>
+                                <h5>{ drink.name }</h5>
+                            </Media.Body>
+                        </Media>
                     )
                 })
             }
@@ -50,21 +57,17 @@ export class ListPage extends React.Component {
     }
 }
 
-//            <div>
-//                 {this.state.data.map((drink) => {
-//                     return(
-//                     <Media>
-//                         <img
-//                             width={64}
-//                             height={64}
-//                             className="mr-3"
-//                             src={ drink.thumb }
-//                             alt="Generic placeholder"
-//                         />
-//                         <Media.Body>
-//                             <h5>{ drink.name }</h5>
-//                         </Media.Body>
-//                     </Media>
-//                     )
-//                 })}
-//             </div>
+function compare(a, b) {
+    // Use toUpperCase() to ignore character casing
+    const nameA = a.name.toUpperCase();
+    const nameB = b.name.toUpperCase();
+
+    let comparison = 0;
+    if (nameA > nameB) {
+        comparison = 1;
+    } else if (nameA < nameB) {
+        comparison = -1;
+    }
+    return comparison;
+}
+

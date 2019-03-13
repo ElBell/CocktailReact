@@ -34,10 +34,11 @@ export class ListPage extends React.Component {
 
     render() {
         return (
-            <div>
+            <div style= {{backgroundColor: "#4d0000"}}>
                 {this.state.drinks.map((drink) => {
                     return (
-                        <Media key = {drink.id} >
+                        <div key = {drink.id} style = {listBorder}>
+                        <Media key = {drink.id}>
                             <img
                                 width={64}
                                 height={64}
@@ -49,6 +50,7 @@ export class ListPage extends React.Component {
                                 <h5>{ drink.name }</h5>
                             </Media.Body>
                         </Media>
+                        </div>
                     )
                 })
             }
@@ -70,4 +72,11 @@ function compare(a, b) {
     }
     return comparison;
 }
+
+const listBorder = {
+    color: "white",
+    borderBottomColor: "white",
+    borderBottomWidth: "3px",
+    borderBottomStyle: "solid"
+};
 

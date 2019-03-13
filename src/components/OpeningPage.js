@@ -61,7 +61,7 @@ function ButtonRows() {
 }
 
 function Page() {
-    return (<div  style= {{backgroundColor: "#771616"}}>
+    return (<div  style= {{backgroundColor: "#4d0000"}}>
             <Header/>
             <ButtonRows/>
         </div>

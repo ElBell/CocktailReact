@@ -35,11 +35,14 @@ function Header() {
 }
 
 function ButtonRows() {
-    const button1 = <LinkContainer to="/findfavorites">
-        <Button variant="outline-light" size="lg" className=" btn-block">Find my Favorites</Button></LinkContainer>;
-    const button2 = <LinkContainer to="/listall">
-        <Button variant="outline-light" size="lg" className=" btn-block">List All</Button>
-    </LinkContainer>;
+    const button1 =
+        <LinkContainer to="/findfavorites">
+            <Button variant="outline-light" size="lg" className=" btn-block">Find my Favorites</Button>
+        </LinkContainer>;
+    const button2 =
+        <LinkContainer to="/listall">
+            <Button variant="outline-light" size="lg" className=" btn-block">List All</Button>
+        </LinkContainer>;
     const button3 = <Button onClick={handleClick}
                             variant="outline-light" size="lg" className=" btn-block">Reccomend Me</Button>;
     const button4 = <Button onClick={handleClick}

@@ -13,6 +13,7 @@ import { OpeningPage } from "./components/OpeningPage";
 import { FindFavorites } from "./components/FindFavorites";
 import { SearchPage} from "./components/SearchPage";
 import { ListPage } from "./components/ListPage";
+import { UnderConstruction } from "./components/UnderConstruction";
 
 ReactDOM.render(
     <Router>
@@ -21,6 +22,7 @@ ReactDOM.render(
             <Route path="/findfavorites" component={FindFavorites}/>
             <Route path="/searchpage" component={SearchPage}/>
             <Route path="/listall" component={ListPage}/>
+            <Route path="/underconstruction" component={UnderConstruction}/>
         </div>
     </Router>,
     document.getElementById("root"));

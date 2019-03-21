@@ -11,77 +11,79 @@ import {LinkContainer} from "react-router-bootstrap";
 //Searchable list https://medium.freecodecamp.org/how-to-build-a-react-native-flatlist-with-realtime-searching-ability-81ad100f6699
 
 export class ListPage extends React.Component {
-    constructor(props) {
-        super(props);
-        this.state = {
-            drinks: []
-        };
-    }
-
-    onLearnMore = (drink) => {
-        //this.props.navigation.navigate('Details', { ...drink });
+  constructor(props) {
+    super(props);
+    this.state = {
+      drinks: []
     };
+  }
 
-    async componentDidMount() {
-        const url = 'http://localhost:8080/cocktail/drinks/';
-        const response = await fetch(url);
-        const body = await response.json();
-        let accumulatedDrinks = [];
-        for(let i in body) {
-            accumulatedDrinks.push(body[i]);
+  onLearnMore = (drink) => {
+
+    //this.props.navigation.navigate('Details', { ...drink });
+  };
+
+  async componentDidMount() {
+    const url = 'http://localhost:8080/cocktail/drinks/';
+    const response = await fetch(url);
+    const body = await response.json();
+    //console.log(body[0]);
+    let accumulatedDrinks = [];
+    for(let i in body) {
+      accumulatedDrinks.push(body[i]);
+    }
+    accumulatedDrinks.sort(compare);
+    this.setState({ drinks: accumulatedDrinks});
+  }
+
+  render() {
+    return (
+      <div style= {{backgroundColor: "#4d0000"}}>
+        {this.state.drinks.map((drink) => {
+          return (
+            <div key = {drink.id} style = {listBorder}>
+              <LinkContainer to="/underconstruction">
+                <Media key = {drink.id}>
+                  <img
+                    width={64}
+                    height={64}
+                    className="mr-3"
+                    src= {drink.thumb}
+                    alt="Generic placeholder"
+                  />
+                  <Media.Body>
+                    <br />
+                    <h5>{ drink.name }</h5>
+                  </Media.Body>
+                </Media>
+              </LinkContainer>
+            </div>
+          )
+        })
         }
-        accumulatedDrinks.sort(compare);
-        this.setState({ drinks: accumulatedDrinks});
-    }
-
-    render() {
-        return (
-            <div style= {{backgroundColor: "#4d0000"}}>
-                {this.state.drinks.map((drink) => {
-                    return (
-                        <div key = {drink.id} style = {listBorder}>
-                            <LinkContainer to="/underconstruction">
-                                <Media key = {drink.id}>
-                                    <img
-                                        width={64}
-                                        height={64}
-                                        className="mr-3"
-                                        src= {drink.thumb}
-                                        alt="Generic placeholder"
-                                     />
-                                    <Media.Body>
-                                        <br />
-                                        <h5>{ drink.name }</h5>
-                                    </Media.Body>
-                                </Media>
-                            </LinkContainer>
-                        </div>
-                    )
-                })
-            }
-        </div>
-        )
-    }
+      </div>
+    )
+  }
 }
 
 function compare(a, b) {
-    // Use toUpperCase() to ignore character casing
-    const nameA = a.name.toUpperCase();
-    const nameB = b.name.toUpperCase();
+  // Use toUpperCase() to ignore character casing
+  const nameA = a.name.toUpperCase();
+  const nameB = b.name.toUpperCase();
 
-    let comparison = 0;
-    if (nameA > nameB) {
-        comparison = 1;
-    } else if (nameA < nameB) {
-        comparison = -1;
-    }
-    return comparison;
+  let comparison = 0;
+  if (nameA > nameB) {
+    comparison = 1;
+  } else if (nameA < nameB) {
+    comparison = -1;
+  }
+  return comparison;
 }
 
 const listBorder = {
-    color: "white",
-    borderBottomColor: "white",
-    borderBottomWidth: "3px",
-    borderBottomStyle: "solid"
+  color: "white",
+  borderBottomColor: "white",
+  borderBottomWidth: "3px",
+  borderBottomStyle: "solid"
 };
 

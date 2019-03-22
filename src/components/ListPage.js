@@ -1,6 +1,5 @@
 import * as React from 'react';
 import Media from "react-bootstrap/Media";
-import Row from "react-bootstrap/Row";
 import {LinkContainer} from "react-router-bootstrap";
 
 //https://github.com/schrodinger/fixed-data-table-2
@@ -42,7 +41,7 @@ export class ListPage extends React.Component {
         {this.state.drinks.map((drink) => {
           return (
             <div key = {drink.id} style = {listBorder}>
-              <LinkContainer to="/underconstruction">
+              <LinkContainer to={ "drink/" + drink.id }>
                 <Media key = {drink.id}>
                   <img
                     width={64}
@@ -53,7 +52,7 @@ export class ListPage extends React.Component {
                   />
                   <Media.Body>
                     <br />
-                    <h5>{ drink.name }</h5>
+                    <h5 style={{fontSize: "22px"}}>{ drink.name }</h5>
                   </Media.Body>
                 </Media>
               </LinkContainer>
@@ -86,4 +85,5 @@ const listBorder = {
   borderBottomWidth: "3px",
   borderBottomStyle: "solid"
 };
+
 

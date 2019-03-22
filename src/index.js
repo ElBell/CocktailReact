@@ -14,6 +14,7 @@ import { FindFavorites } from "./components/FindFavorites";
 import { SearchPage} from "./components/SearchPage";
 import { ListPage } from "./components/ListPage";
 import { UnderConstruction } from "./components/UnderConstruction";
+import { DrinkPage} from "./components/DrinkPage"
 
 ReactDOM.render(
     <Router>
@@ -22,6 +23,7 @@ ReactDOM.render(
             <Route path="/findfavorites" component={FindFavorites}/>
             <Route path="/searchpage" component={SearchPage}/>
             <Route path="/listall" component={ListPage}/>
+            <Route path="/drink/:id" component={DrinkPage}/>
             <Route path="/underconstruction" component={UnderConstruction}/>
         </div>
     </Router>,

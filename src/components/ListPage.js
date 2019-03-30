@@ -1,6 +1,5 @@
-import * as React from 'react';
-import Media from "react-bootstrap/Media";
-import {LinkContainer} from "react-router-bootstrap";
+import * as React from "react";
+import { ListItem } from "./ListItem";
 
 //https://github.com/schrodinger/fixed-data-table-2
 //https://react.rocks/?q=search
@@ -10,80 +9,35 @@ import {LinkContainer} from "react-router-bootstrap";
 //Searchable list https://medium.freecodecamp.org/how-to-build-a-react-native-flatlist-with-realtime-searching-ability-81ad100f6699
 
 export class ListPage extends React.Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      drinks: []
-    };
-  }
-
-  onLearnMore = (drink) => {
-
+  state = {
+    drinks: []
+  };
+  onLearnMore = drink => {
     //this.props.navigation.navigate('Details', { ...drink });
   };
 
   async componentDidMount() {
-    const url = 'http://localhost:8080/cocktail/drinks/';
+    const url = "http://localhost:8080/cocktail/drinks/";
     const response = await fetch(url);
     const body = await response.json();
-    //console.log(body[0]);
-    let accumulatedDrinks = [];
-    for(let i in body) {
-      accumulatedDrinks.push(body[i]);
-    }
-    accumulatedDrinks.sort(compare);
-    this.setState({ drinks: accumulatedDrinks});
+    body.sort(compare);
+    this.setState({ drinks: body });
+    console.log(this.state.drinks);
   }
 
   render() {
-    return (
-      <div style= {{backgroundColor: "#4d0000"}}>
-        {this.state.drinks.map((drink) => {
-          return (
-            <div key = {drink.id} style = {listBorder}>
-              <LinkContainer to={ "drink/" + drink.id }>
-                <Media key = {drink.id}>
-                  <img
-                    width={64}
-                    height={64}
-                    className="mr-3"
-                    src= {drink.thumb}
-                    alt="Generic placeholder"
-                  />
-                  <Media.Body>
-                    <br />
-                    <h5 style={{fontSize: "22px"}}>{ drink.name }</h5>
-                  </Media.Body>
-                </Media>
-              </LinkContainer>
-            </div>
-          )
-        })
-        }
-      </div>
-    )
+    let listItems = getListItems(this.state.drinks);
+    return <div>{listItems}</div>;
   }
 }
 
 function compare(a, b) {
   // Use toUpperCase() to ignore character casing
-  const nameA = a.name.toUpperCase();
-  const nameB = b.name.toUpperCase();
-
-  let comparison = 0;
-  if (nameA > nameB) {
-    comparison = 1;
-  } else if (nameA < nameB) {
-    comparison = -1;
-  }
-  return comparison;
+  return a.name.toUpperCase().localeCompare(b.name.toUpperCase());
 }
 
-const listBorder = {
-  color: "white",
-  borderBottomColor: "white",
-  borderBottomWidth: "3px",
-  borderBottomStyle: "solid"
-};
-
-
+function getListItems(drinks) {
+  return drinks.map(drink => {
+    return <ListItem key={drink.id} drink={drink} />;
+  });
+}

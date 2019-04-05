@@ -12,9 +12,6 @@ export class ListPage extends React.Component {
   state = {
     drinks: []
   };
-  onLearnMore = drink => {
-    //this.props.navigation.navigate('Details', { ...drink });
-  };
 
   async componentDidMount() {
     const url = "http://localhost:8080/cocktail/drinks/";
@@ -22,8 +19,9 @@ export class ListPage extends React.Component {
     const body = await response.json();
     body.sort(compare);
     this.setState({ drinks: body });
-    console.log(this.state.drinks);
   }
+
+  comp;
 
   render() {
     let listItems = getListItems(this.state.drinks);

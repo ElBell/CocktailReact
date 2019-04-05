@@ -8,23 +8,15 @@ import * as serviceWorker from "./serviceWorker";
 
 import { OpeningPage } from "./components/OpeningPage";
 import { FindFavorites } from "./components/FindFavorites";
-import { SearchPage } from "./components/SearchPage";
 import { ListPage } from "./components/ListPage";
 import { UnderConstruction } from "./components/UnderConstruction";
 import { DrinkPage } from "./components/DrinkPage";
-
-class App extends React.Component {
-  state = {
-    drinks: []
-  };
-}
 
 ReactDOM.render(
   <Router>
     <div>
       <Route exact path="/cocktails" component={OpeningPage} />
       <Route path="/cocktails/findfavorites" component={FindFavorites} />
-      <Route path="/cocktails/searchpage" component={SearchPage} />
       <Route path="/cocktails/listall" component={ListPage} />
       <Route path="/cocktails/drink/:id" component={DrinkPage} />
       <Route

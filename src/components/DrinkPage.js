@@ -3,7 +3,6 @@ import Image from "react-bootstrap/Image";
 import Container from "react-bootstrap/Container";
 import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";
-import {ListItem} from "./ListItem";
 
 export class DrinkPage extends React.Component {
   state = {
@@ -79,13 +78,10 @@ const DrinkImage = ({ image }) => {
 const DrinkGlass = ({glass}) => {
   if (glass != null) {
     return (
-      <div>
-        <br/>
-        <Row className="row justify-content-center">
+        <Row>
           <h3>{glass.name}</h3>
           <Image width={30} height={30} src={glass.image} roundedCircle />
         </Row>
-      </div>
     )
   } else {
     return (

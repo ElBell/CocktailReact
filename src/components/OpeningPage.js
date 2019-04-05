@@ -45,7 +45,7 @@ function ButtonFavorites() {
 
 function ButtonListAll() {
   return (
-    <LinkContainer to="/cocktails/listall">
+    <LinkContainer to="/cocktails/search">
       <Button variant="outline-light" size="lg" className=" btn-block">
         List All
       </Button>

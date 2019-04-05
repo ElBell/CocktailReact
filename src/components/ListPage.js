@@ -10,22 +10,24 @@ import { ListItem } from "./ListItem";
 
 export class ListPage extends React.Component {
   state = {
-    drinks: []
+    drinks: null
   };
 
   async componentDidMount() {
-    const url = "http://localhost:8080/cocktail/drinks/";
-    const response = await fetch(url);
-    const body = await response.json();
-    body.sort(compare);
-    this.setState({ drinks: body });
+    fetch("http://localhost:8080/cocktail/drinks/")
+      .then(response => response.json())
+      .then(data => data.sort(compare))
+      .then(data => this.setState({drinks: data}));
   }
 
-  comp;
 
   render() {
-    let listItems = getListItems(this.state.drinks);
-    return <div>{listItems}</div>;
+    if (this.state.drinks == null) {
+      return <h1>Loading, please wait!</h1>
+    } else {
+      let listItems = getListItems(this.state.drinks);
+      return <div>{listItems}</div>;
+    }
   }
 }
 

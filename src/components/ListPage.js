@@ -1,6 +1,10 @@
 import * as React from "react";
 import { ListItem } from "./ListItem";
 
+function compare(a, b) {
+  // Use toUpperCase() to ignore character casing
+  return a.name.toUpperCase().localeCompare(b.name.toUpperCase());
+}
 
 function getListItems(drinks) {
   return drinks.map(drink => {
@@ -10,7 +14,7 @@ function getListItems(drinks) {
 
 export class ListPage extends React.Component {
   state = {
-    drinks: this.props.drinks
+    drinks: this.props.drinks.sort(compare)
   };
 
   componentWillReceiveProps = (nextProps) => {

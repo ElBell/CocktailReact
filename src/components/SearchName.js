@@ -2,11 +2,7 @@ import * as React from "react";
 import {ListPage} from "./ListPage";
 import {Loading} from "./Loading";
 import {SearchBar} from "./SearchBar";
-
-function compare(a, b) {
-  // Use toUpperCase() to ignore character casing
-  return a.name.toUpperCase().localeCompare(b.name.toUpperCase());
-}
+import {App} from "../App";
 
 export class SearchName extends React.Component{
 
@@ -22,10 +18,8 @@ export class SearchName extends React.Component{
   };
 
   componentDidMount = async () => {
-    let url = "http://localhost:8080/cocktail/";
-    fetch(url + "drinks")
+    fetch(App.SITE_URL + "drinks")
       .then(response => response.json())
-      .then(data => data.sort(compare))
       .then(data => this.setState({drinks: data, totalDrinks: data, loading: false}));
   };
 

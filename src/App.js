@@ -6,6 +6,7 @@ import Col from "react-bootstrap/Col";
 import { LinkContainer } from "react-router-bootstrap";
 
 function Header() {
+  const url = "http://localhost:8080/cocktail/";
   return (
     <div>
       <br />
@@ -83,6 +84,9 @@ function ButtonRows() {
 const handleClick = () => alert("clicked1");
 
 export class App extends React.Component {
+  static get SITE_URL() {
+    return "http://localhost:8080/cocktail/";
+  }
   render() {
     return (
       <div>

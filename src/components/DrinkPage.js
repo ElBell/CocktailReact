@@ -4,6 +4,7 @@ import Container from "react-bootstrap/Container";
 import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";
 import {Loading} from "./Loading";
+import {App} from "../App";
 
 const DrinkTitle = ({ name }) => {
   return (
@@ -88,16 +89,16 @@ export class DrinkPage extends React.Component {
   };
 
   componentDidMount = async () => {
-    this.getDrink();
+    await this.getDrink();
   };
 
-  async componentWillReceiveProps() {
-    this.getDrink();
-  }
+  componentWillReceiveProps = async () => {
+    await this.getDrink();
+  };
 
   async getDrink() {
     const { id } = await this.props.match.params;
-    fetch("http://localhost:8080/cocktail/drinks/" + id)
+    fetch(App.SITE_URL + "drinks/" + id)
       .then(response => response.json())
       .then(data => this.setState({drink: data}));
   }

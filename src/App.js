@@ -1,29 +1,94 @@
-import "bootstrap/dist/css/bootstrap.css";
+import * as React from "react";
+import Button from "react-bootstrap/Button";
+import Container from "react-bootstrap/Container";
+import Row from "react-bootstrap/Row";
+import Col from "react-bootstrap/Col";
+import { LinkContainer } from "react-router-bootstrap";
 
-import React from "react";
-import "./index.css";
-import { BrowserRouter as Router, Route } from "react-router-dom";
-import * as serviceWorker from "./serviceWorker";
+function Header() {
+  return (
+    <div>
+      <br />
+      <br />
+      <h1
+        className="text-center"
+        style={{ fontSize: 50, fontFamily: "Droid Sans" }}
+      >
+        Cocktail Compendium
+      </h1>
+    </div>
+  );
+}
 
-import { OpeningPage } from "./components/OpeningPage";
-import { ListPage } from "./components/ListPage";
-import { UnderConstruction } from "./components/UnderConstruction";
-import { DrinkPage } from "./components/DrinkPage";
-import { SearchBarPage } from "./components/SearchBarPage"
+function ButtonFavorites() {
+  return (
+    <LinkContainer to="/cocktails/findfavorites">
+      <Button variant="outline-light" size="lg" className=" btn-block">
+        Find my Favorites
+      </Button>
+    </LinkContainer>
+  );
+}
 
+function ButtonListAll() {
+  return (
+    <LinkContainer to="/cocktails/search">
+      <Button variant="outline-light" size="lg" className=" btn-block">
+        List All
+      </Button>
+    </LinkContainer>
+  );
+}
+
+function ButtonRows() {
+  const button1 = <ButtonFavorites />;
+  const button2 = <ButtonListAll />;
+  const button3 = (
+    <Button
+      onClick={handleClick}
+      variant="outline-light"
+      size="lg"
+      className=" btn-block"
+    >
+      Recommend a Drink
+    </Button>
+  );
+  const button4 = (
+    <Button
+      onClick={handleClick}
+      variant="outline-light"
+      size="lg"
+      className=" btn-block"
+    >
+      Liquor Log
+    </Button>
+  );
+
+  return (
+    <Container>
+      <br />
+      <Row className="align-items-center">
+        <Col>{button1}</Col>
+        <Col>{button3}</Col>
+      </Row>
+      <br />
+      <Row className="align-items-center">
+        <Col>{button2}</Col>
+        <Col>{button4}</Col>
+      </Row>
+    </Container>
+  );
+}
+
+const handleClick = () => alert("clicked1");
 
 export class App extends React.Component {
   render() {
-    return(
-      <Router>
-        <div>
-          <Route exact path="/cocktails" component={OpeningPage} />
-          <Route path="/cocktails/search" component={SearchBarPage} />
-          <Route path="/cocktails/listall" component={ListPage} />
-          <Route path="/cocktails/drink/:id" component={DrinkPage} />
-          <Route path="/cocktails/underconstruction" component={UnderConstruction}/>
-        </div>
-      </Router>
-    )
+    return (
+      <div>
+        <Header />
+        <ButtonRows />
+      </div>
+    );
   }
 }

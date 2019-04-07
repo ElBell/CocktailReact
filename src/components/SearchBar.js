@@ -10,6 +10,12 @@ export class SearchBar extends React.Component {
       });
   };
 
+  onTermDelete = () => {
+    this.setState({term: ''},
+      function () {
+        this.props.updateDrinks(this.state.term)
+      })
+  };
 
   render() {
     return (
@@ -19,7 +25,7 @@ export class SearchBar extends React.Component {
                value={this.state.term}/>
           <div className="input-group-append">
             <span className="input-group-text white" id="basic-text1"
-                  onClick={() => this.setState({term:''})}>
+                  onClick={this.onTermDelete}>
               <i className="far fa-times-circle" aria-hidden="true"/></span>
           </div>
       </div>

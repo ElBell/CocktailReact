@@ -6,18 +6,18 @@ import "./index.css";
 import * as serviceWorker from "./serviceWorker";
 import {App} from "./App";
 import {BrowserRouter as Router, Route} from "react-router-dom";
-import {Search} from "./components/Search";
-import {ListPage} from "./components/ListPage";
+import {SearchName} from "./components/SearchName";
 import {DrinkPage} from "./components/DrinkPage";
 import {UnderConstruction} from "./components/UnderConstruction";
+import {SearchIngredient} from "./components/SearchIngredient";
 
 
 ReactDOM.render(
   <Router>
     <div>
       <Route exact path="/cocktails" component={App} />
-      <Route path="/cocktails/search" component={Search} />
-      <Route path="/cocktails/listall" component={ListPage} />
+      <Route path="/cocktails/searchname" component={SearchName} />
+      <Route path="/cocktails/searchingredient" component={SearchIngredient}/>
       <Route path="/cocktails/drink/:id" component={DrinkPage} />
       <Route path="/cocktails/underconstruction" component={UnderConstruction}/>
     </div>

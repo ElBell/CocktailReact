@@ -22,9 +22,9 @@ function Header() {
 
 function ButtonFavorites() {
   return (
-    <LinkContainer to="/cocktails/findfavorites">
+    <LinkContainer to="/cocktails/searchingredient">
       <Button variant="outline-light" size="lg" className=" btn-block">
-        Find my Favorites
+        find my favorites
       </Button>
     </LinkContainer>
   );
@@ -32,9 +32,9 @@ function ButtonFavorites() {
 
 function ButtonListAll() {
   return (
-    <LinkContainer to="/cocktails/search">
+    <LinkContainer to="/cocktails/searchname">
       <Button variant="outline-light" size="lg" className=" btn-block">
-        List All
+         List all
       </Button>
     </LinkContainer>
   );

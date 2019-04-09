@@ -6,6 +6,42 @@ import Col from "react-bootstrap/Col";
 import {Loading} from "./Loading";
 import {App} from "../App";
 
+
+export class DrinkPage extends React.Component {
+  state = {
+    drink: null
+  };
+
+  componentDidMount = async () => {
+    await this.getDrink();
+  };
+
+  componentWillReceiveProps = async () => {
+    await this.getDrink();
+  };
+
+  async getDrink() {
+    const { id } = await this.props.match.params;
+    fetch(App.SITE_URL + "drinks/" + id)
+      .then(response => response.json())
+      .then(data => this.setState({drink: data}));
+  }
+
+  render() {
+    if (!(this.state.drink === null || this.state.drink.ingredients === undefined)) {
+      const drink = this.state.drink;
+      return (
+        <Container>
+          <DrinkTitle name={drink.name} />
+          <DrinkImage image={drink.image} />
+          <DrinkDetails drink={drink}/>
+        </Container>
+      );
+    }
+    return <Loading />;
+  }
+}
+
 const DrinkTitle = ({ name }) => {
   return (
     <div>
@@ -83,38 +119,4 @@ const DrinkInstructions = ({instructions}) => {
   )
 };
 
-export class DrinkPage extends React.Component {
-  state = {
-    drink: null
-  };
-
-  componentDidMount = async () => {
-    await this.getDrink();
-  };
-
-  componentWillReceiveProps = async () => {
-    await this.getDrink();
-  };
-
-  async getDrink() {
-    const { id } = await this.props.match.params;
-    fetch(App.SITE_URL + "drinks/" + id)
-      .then(response => response.json())
-      .then(data => this.setState({drink: data}));
-  }
-
-  render() {
-    if (!(this.state.drink === null || this.state.drink.ingredients === undefined)) {
-      const drink = this.state.drink;
-      return (
-        <Container>
-          <DrinkTitle name={drink.name} />
-          <DrinkImage image={drink.image} />
-          <DrinkDetails drink={drink}/>
-        </Container>
-      );
-    }
-    return <Loading />;
-  }
-}
 

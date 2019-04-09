@@ -6,7 +6,6 @@ import Col from "react-bootstrap/Col";
 import { LinkContainer } from "react-router-bootstrap";
 
 function Header() {
-  const url = "http://localhost:8080/cocktail/";
   return (
     <div>
       <br />
@@ -25,7 +24,7 @@ function ButtonFavorites() {
   return (
     <LinkContainer to="/cocktails/searchingredient">
       <Button variant="outline-light" size="lg" className=" btn-block">
-        find my favorites
+        find by ingredient
       </Button>
     </LinkContainer>
   );

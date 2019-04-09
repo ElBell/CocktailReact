@@ -1,6 +1,5 @@
 import * as React from "react";
 import Container from "react-bootstrap/Container";
-import Image from "react-bootstrap/Image";
 
 export class UnderConstruction extends React.Component{
 
@@ -8,7 +7,7 @@ export class UnderConstruction extends React.Component{
         return (
             <Container>
                 <br /><br />
-                    <Image src="https://cdn.pixabay.com/photo/2017/06/16/07/26/under-construction-2408061_960_720.png" fluid />
+                    <h1>Underconstruction</h1>
             </Container>)
     }
 }

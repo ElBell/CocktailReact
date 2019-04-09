@@ -6,6 +6,7 @@
     "@emotion/core": "latest",
     "bootstrap": "^4.3.1",
     "bootstrap-material-design": "^4.1.1",
+    "jquery": "^3.3.1",
     "mdbreact": "^4.12.0",
     "react": "^16.8.4",
     "react-bootstrap": "^1.0.0-beta.5",
@@ -14,7 +15,8 @@
     "react-router-bootstrap": "^0.24.4",
     "react-router-dom": "^4.3.1",
     "react-scripts": "2.1.8",
-    "react-spinners": "^0.5.3"
+    "react-spinners": "^0.5.3",
+    "typescript": "^3.4.2"
   },
   "scripts": {
     "start": "react-scripts start",

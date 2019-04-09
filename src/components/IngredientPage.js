@@ -1,6 +1,8 @@
 import React from "react";
 import {App} from "../App";
 import {SearchBar} from "./SearchBar";
+import Button from "react-bootstrap/Button";
+import {BackButton} from "./BackButton";
 
 export class IngredientPage extends React.Component {
   state = {
@@ -47,7 +49,8 @@ export class IngredientPage extends React.Component {
     if(this.state.ingredients.length > 0) {
       return (
         <div>
-          <button type="submit" className="btn btn-primary" onClick={this.handleClick}>Get Drinks</button>
+          <BackButton/>
+          <Button variant="light" size="lg" className="btn" onClick={this.handleClick}>Get Drinks</Button>
           <SearchBar updateDrinks={this.updateIngredients}/>
           { this.state.ingredients.map(ingredient => {
           return(<Checkbox
@@ -58,11 +61,7 @@ export class IngredientPage extends React.Component {
         })}
         </div>
       )}
-    return (
-      <div>
-        Loading, please wait
-      </div>
-    )
+    return <br/>
   }
 }
 

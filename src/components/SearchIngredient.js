@@ -3,7 +3,6 @@ import {ListPage} from "./ListPage";
 import {Loading} from "./Loading";
 import {App} from "../App";
 import {IngredientPage} from "./IngredientPage";
-import {LinkContainer} from "react-router-bootstrap";
 import Button from "react-bootstrap/Button";
 
 export class SearchIngredient extends React.Component{
@@ -41,18 +40,38 @@ export class SearchIngredient extends React.Component{
     this.setState({drinks: [], ingredients: null })
   };
 
+  switchLimited = () => {
+    if (this.state.limit) {
+      this.setState({limit: false})
+    } else {
+      this.setState({limit: true})
+    }
+  };
+
   render() {
     if (this.state.loading) {
       return <Loading/>
     } else if (this.state.drinks.length > 0) {
       return (
         <div>
-          <button type="submit" className="btn btn-primary" onClick={this.handleClick}>Do another search</button>
+          <Button variant="light" size="lg" className="btn" onClick={this.handleClick}>Do another search</Button>
           <ListPage drinks={this.state.drinks}/>
         </div>)
     } else {
-      return <IngredientPage searchDrinks={this.searchDrinks} />
+      return (
+        <div>
+          <Button variant="light" size="lg" className="btn" onClick={this.switchLimited}>{this.isLimited()}</Button>
+          <IngredientPage searchDrinks={this.searchDrinks} />
+        </div>
+        )
     }
   }
 
+  isLimited() {
+    if (!this.state.limit) {
+      return <p>Inclusive</p>
+    } else {
+      return <p>Limited</p>
+    }
+  }
 }

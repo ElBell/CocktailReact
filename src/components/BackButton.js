@@ -5,7 +5,7 @@ import * as React from "react";
 export const BackButton = () => {
   return(
     <LinkContainer to="/cocktails/">
-      <Button variant="outline-light" size="lg" className=" btn-block">
+      <Button variant="outline-light" size="lg" className="btn">
         Back
       </Button>
     </LinkContainer>

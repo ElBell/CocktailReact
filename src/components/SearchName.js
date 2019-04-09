@@ -3,6 +3,7 @@ import {ListPage} from "./ListPage";
 import {Loading} from "./Loading";
 import {SearchBar} from "./SearchBar";
 import {App} from "../App";
+import {BackButton} from "./BackButton";
 
 export class SearchName extends React.Component{
 
@@ -29,6 +30,7 @@ export class SearchName extends React.Component{
     }
     return (
       <div>
+        <BackButton/>
         <SearchBar updateDrinks={this.updateDrinks}/>
         <ListPage drinks={this.state.drinks}/>
       </div>

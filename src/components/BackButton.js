@@ -1,13 +1,11 @@
-import {LinkContainer} from "react-router-bootstrap";
+
 import Button from "react-bootstrap/Button";
 import * as React from "react";
 
-export const BackButton = () => {
+export const BackButton = ({reset}) => {
   return(
-    <LinkContainer to="/cocktails/">
-      <Button variant="outline-light" size="lg" className="btn">
-        Back
-      </Button>
-    </LinkContainer>
+    <Button onClick={reset()} variant="outline-light" size="lg" className="btn">
+      Back
+    </Button>
   )
 };

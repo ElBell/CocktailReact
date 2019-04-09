@@ -2,8 +2,6 @@ import * as React from "react";
 import {ListPage} from "./ListPage";
 import {Loading} from "./Loading";
 import {SearchBar} from "./SearchBar";
-import {App} from "../App";
-import {BackButton} from "./BackButton";
 
 export class SearchName extends React.Component{
 
@@ -19,9 +17,8 @@ export class SearchName extends React.Component{
   };
 
   componentDidMount = async () => {
-    fetch(App.SITE_URL + "drinks")
-      .then(response => response.json())
-      .then(data => this.setState({drinks: data, totalDrinks: data, loading: false}));
+    const drinks = await this.props.drinks;
+    this.setState({drinks: drinks, loading:false})
   };
 
   render() {
@@ -30,7 +27,6 @@ export class SearchName extends React.Component{
     }
     return (
       <div>
-        <BackButton/>
         <SearchBar updateDrinks={this.updateDrinks}/>
         <ListPage drinks={this.state.drinks}/>
       </div>

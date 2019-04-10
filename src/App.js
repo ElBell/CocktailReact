@@ -23,48 +23,16 @@ function Header() {
   );
 }
 
+
+
 export class App extends React.Component {
   state = {
     loadingDrinks: true,
-    loadingIngredients: true,
     drinks: [],
     ingredients: [],
-    ingredientSearch: false,
-    nameSearch: false
+    mode: "none"
   };
 
-  componentDidMount = async () => {
-    fetch("/drinks")
-      .then(response => response.json())
-      .then(data => this.setState({drinks: data, totalDrinks: data, loadingDrinks: false}));
-    fetch( "/ingredients")
-      .then(response => response.json())
-      .then(data => this.setState({ingredients: data, loadingIngredients: false}))
-  };
-
-  toggleIngredientSearch = () => {
-    this.setState({ingredientSearch:true})
-  };
-
-  ButtonIngredientSearch() {
-    return (
-      <Button onClick={() => this.toggleIngredientSearch()} variant="outline-light" size="lg" className=" btn-block">
-        find by ingredient
-      </Button>
-    );
-  }
-
-  toggleNameSearch = () => {
-    this.setState({nameSearch:true})
-  };
-
-  ButtonNameSearch() {
-    return (
-      <Button onClick={this.toggleNameSearch} variant="outline-light" size="lg" className=" btn-block">
-        find by name
-      </Button>
-    );
-  }
 
   ButtonRows() {
     const button1 = this.ButtonIngredientSearch();
@@ -83,22 +51,54 @@ export class App extends React.Component {
     );
   }
 
+  componentDidMount = async () => {
+    fetch( "/ingredients")
+      .then(response => response.json())
+      .then(data => this.setState({ingredients: data}));
+    fetch("/drinks")
+      .then(response => response.json())
+      .then(data => this.setState({drinks: data, totalDrinks: data, loadingDrinks: false}));
+  };
+
+  toggleIngredientSearch = () => {
+    this.setState({mode:'ingredient'})
+  };
+
+  ButtonIngredientSearch() {
+    return (
+      <Button onClick={() => this.toggleIngredientSearch()} variant="outline-light" size="lg" className=" btn-block">
+        find by ingredient
+      </Button>
+    );
+  }
+
+  toggleNameSearch = () => {
+    this.setState({mode:'name'})
+  };
+
+  ButtonNameSearch() {
+    return (
+      <Button onClick={this.toggleNameSearch} variant="outline-light" size="lg" className=" btn-block">
+        find by name
+      </Button>
+    );
+  }
 
   reset = () => {
-    this.setState({ingredientSearch: false, nameSearch: false})
+    this.setState({mode: 'none'})
   };
 
   render() {
-    if (this.state.loadingDrinks || this.state.loadingIngredients) {
+    if (this.state.loadingDrinks) {
       return <Loading/>
-    } else if (this.state.nameSearch) {
+    } else if (this.state.mode === 'name') {
       return (
         <div>
           <BackButton reset={this.reset}/>
           <SearchName drinks={this.state.drinks}/>
         </div>
       )
-    } else if(this.state.ingredientSearch) {
+    } else if(this.state.mode === 'ingredient') {
       return (
         <div>
           <BackButton reset={this.reset}/>

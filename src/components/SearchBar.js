@@ -26,8 +26,13 @@ export class SearchBar extends React.Component {
           <div className="input-group-append">
             <span className="input-group-text white" id="basic-text1"
                   onClick={this.onTermDelete}>
-              <i className="far fa-times-circle" aria-hidden="true"/></span>
+              <i className="far fa-times-circle"/></span>
           </div>
+        <div className="input-group-append">
+            <span className="input-group-text white" id="basic-text1"
+                  onClick={this.props.onTermSubimit}>
+              <i className="fas fa-search"/></span>
+        </div>
       </div>
     )
   }

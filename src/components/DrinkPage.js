@@ -20,7 +20,7 @@ export class DrinkPage extends React.Component {
 
   async getDrink() {
     const { id } = await this.props.match.params;
-    fetch("/drinks/" + id)
+    fetch(id)
       .then(response => response.json())
       .then(data => this.setState({drink: data}));
   }

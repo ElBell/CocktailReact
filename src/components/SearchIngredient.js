@@ -1,57 +1,42 @@
 import * as React from "react";
 import {ListPage} from "./ListPage";
-import {Loading} from "./Loading";
-import {App} from "../App";
 import {IngredientPage} from "./IngredientPage";
 import Button from "react-bootstrap/Button";
+import BootstrapSwitchButton from 'bootstrap-switch-button-react'
+
 
 export class SearchIngredient extends React.Component{
   state = {
-    loading: true,
     limit: false,
     drinks: [],
     ingredients:null
   };
 
-  componentDidMount = async () => {
-    this.getDrinks()
-  };
-
-
   getDrinks() {
     if (this.state.limit) {
-      fetch(App.SITE_URL+ "ingredients/limit/" + this.state.ingredients)
+      fetch("ingredients/limit/" + this.state.ingredients)
         .then(response => response.json())
-        .then(data => this.setState({drinks: data, loading: false}))
+        .then(data => this.setState({drinks: data}))
     } else {
-      fetch(App.SITE_URL+ "ingredients/include/" + this.state.ingredients)
+      fetch("ingredients/include/" + this.state.ingredients)
         .then(response => response.json())
-        .then(data => this.setState({drinks: data, loading: false}))
+        .then(data => this.setState({drinks: data}))
     }
   }
 
   searchDrinks = (ingredients) => {
+    console.log(ingredients);
     this.setState({ingredients: ingredients},
       () => {this.getDrinks()}
       )
   };
 
-  handleClick =() => {
+  handleClick = () => {
     this.setState({drinks: [], ingredients: null })
   };
 
-  switchLimited = () => {
-    if (this.state.limit) {
-      this.setState({limit: false})
-    } else {
-      this.setState({limit: true})
-    }
-  };
-
   render() {
-    if (this.state.loading) {
-      return <Loading/>
-    } else if (this.state.drinks.length > 0) {
+    if (this.state.drinks.length > 0) {
       return (
         <div>
           <Button variant="light" size="lg" className="btn" onClick={this.handleClick}>Do another search</Button>
@@ -60,18 +45,20 @@ export class SearchIngredient extends React.Component{
     } else {
       return (
         <div>
-          <Button variant="light" size="lg" className="btn" onClick={this.switchLimited}>{this.isLimited()}</Button>
-          <IngredientPage searchDrinks={this.searchDrinks} />
+          <BootstrapSwitchButton
+            checked={this.state.limit}
+            onlabel='Drink must include all'
+            offlabel='Drink may include any'
+            offstyle='light'
+            onstyle='light'
+            width='250'
+            onChange={(checked) => {
+              this.setState({ limit: checked })
+            }}
+          />
+          <IngredientPage ingredients={this.props.ingredients} searchDrinks={this.searchDrinks} />
         </div>
         )
-    }
-  }
-
-  isLimited() {
-    if (!this.state.limit) {
-      return <p>Inclusive</p>
-    } else {
-      return <p>Limited</p>
     }
   }
 }

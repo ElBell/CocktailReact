@@ -1,20 +1,11 @@
 import React from "react";
-import {App} from "../App";
 import {SearchBar} from "./SearchBar";
-import Button from "react-bootstrap/Button";
-import {BackButton} from "./BackButton";
 
 export class IngredientPage extends React.Component {
   state = {
-    totalIngredients: [],
-    ingredients: [],
+    totalIngredients: this.props.ingredients,
+    ingredients: this.props.ingredients,
     selected: []
-  };
-
-  componentDidMount() {
-    fetch(App.SITE_URL + "ingredients")
-      .then(response => response.json())
-      .then(data => this.setState({totalIngredients: data, ingredients: data}))
   };
 
   handleCheckboxChange = (ingredient) => {
@@ -40,29 +31,26 @@ export class IngredientPage extends React.Component {
     }
   };
 
+
   updateIngredients = (term) => {
     this.setState({ingredients: this.state.totalIngredients
-        .filter(ingredients => ingredients.toUpperCase().includes(term.toUpperCase()))});
+        .filter(ingredients => ingredients.toUpperCase().includes(term.toUpperCase()))},
+      () => this.setState({ingredients: this.state.ingredients.sort(sortBegins(term))}));
   };
 
   render() {
-    if(this.state.ingredients.length > 0) {
-      return (
-        <div>
-          <BackButton/>
-          <Button variant="light" size="lg" className="btn" onClick={this.handleClick}>Get Drinks</Button>
-          <SearchBar updateDrinks={this.updateIngredients}/>
-          { this.state.ingredients.map(ingredient => {
-          return(<Checkbox
-            label={ingredient}
-            onCheckboxChange={this.handleCheckboxChange}
-            key={ingredient}
-            checked={this.state.selected.includes(ingredient)}/>)
-        })}
-        </div>
-      )}
-    return <br/>
-  }
+    return (
+      <div>
+        <SearchBar onTermSubmit={this.handleClick} updateDrinks={this.updateIngredients}/>
+        { this.state.ingredients.map(ingredient => {
+        return(<Checkbox
+          label={ingredient}
+          onCheckboxChange={this.handleCheckboxChange}
+          key={ingredient}
+          checked={this.state.selected.includes(ingredient)}/>)
+      })}
+      </div>
+    )}
 }
 
 const Checkbox = ({ label, onCheckboxChange, checked }) => (
@@ -79,4 +67,10 @@ const Checkbox = ({ label, onCheckboxChange, checked }) => (
     </label>
   </div>
 );
+
+function sortBegins(term) {
+  return function (a, b) {
+    return a.startsWith(term) ? (b.startsWith(term) ? 0 : -1) : 1
+  }
+}
 

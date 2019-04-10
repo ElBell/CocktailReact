@@ -18,7 +18,7 @@ export class SearchName extends React.Component{
 
   componentDidMount = async () => {
     const drinks = await this.props.drinks;
-    this.setState({drinks: drinks, loading:false})
+    this.setState({drinks: drinks, totalDrinks: drinks, loading:false})
   };
 
   render() {

@@ -3,10 +3,17 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
+    "@babel/core": "^7.4.3",
+    "@babel/plugin-proposal-class-properties": "^7.4.0",
+    "@babel/preset-env": "^7.1.6",
     "@emotion/core": "latest",
     "axios": "^0.18.0",
+    "babel-core": "^7.0.0-bridge.0",
+    "babel-jest": "^23.6.0",
     "bootstrap": "^4.3.1",
     "bootstrap-material-design": "^4.1.1",
+    "jest": "^23.6.0",
+    "jest-cli": "^23.6.0",
     "jquery": "^3.3.1",
     "mdbreact": "^4.12.0",
     "react": "^16.8.4",
@@ -17,7 +24,8 @@
     "react-router-dom": "^4.3.1",
     "react-scripts": "2.1.8",
     "react-spinners": "^0.5.3",
-    "typescript": "^3.4.2"
+    "webpack": "^4.8.1",
+    "webpack-cli": "^3.1.2"
   },
   "scripts": {
     "start": "react-scripts start",
@@ -34,5 +42,17 @@
     "not ie <= 11",
     "not op_mini all"
   ],
-  "proxy": "http://localhost:8080/cocktail"
+  "proxy": "http://localhost:8080/cocktail",
+  "babel": {
+    "presets": [
+      "@babel/preset-env",
+      "@babel/preset-react"
+    ],
+    "plugins": [
+      "@babel/plugin-proposal-class-properties"
+    ]
+  },
+  "devDependencies": {
+    "bootstrap-switch-button-react": "^1.0.0"
+  }
 }

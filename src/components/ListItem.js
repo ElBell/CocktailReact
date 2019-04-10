@@ -5,7 +5,7 @@ import Media from "react-bootstrap/Media";
 export const ListItem = ({drink}) => {
   return (
     <div key = {drink.id} style = {listBorder}>
-      <LinkContainer to={ "drink/" + drink.id }>
+      <LinkContainer to={ "/drinks/" + drink.id }>
         <Media key = {drink.id}>
           <img
             width={64}

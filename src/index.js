@@ -15,11 +15,11 @@ import {SearchIngredient} from "./components/SearchIngredient";
 ReactDOM.render(
   <Router>
     <div>
-      <Route exact path="/cocktails" component={App} />
-      <Route path="/cocktails/searchname" component={SearchName} />
-      <Route path="/cocktails/searchingredient" component={SearchIngredient}/>
-      <Route path="/cocktails/drink/:id" component={DrinkPage} />
-      <Route path="/cocktails/underconstruction" component={UnderConstruction}/>
+      <Route exact path="/" component={App} />
+      <Route path="/searchname" component={SearchName} />
+      <Route path="/searchingredient" component={SearchIngredient}/>
+      <Route path="/drinks/:id" component={DrinkPage} />
+      <Route path="/underconstruction" component={UnderConstruction}/>
     </div>
   </Router>,
   document.getElementById("root")

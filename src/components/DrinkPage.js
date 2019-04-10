@@ -33,7 +33,7 @@ export class DrinkPage extends React.Component {
       return (
         <Container>
           <DrinkTitle name={drink.name} />
-          <DrinkImage image={drink.image} />
+          <DrinkImage image={"/img/" + drink.image} />
           <DrinkDetails drink={drink}/>
         </Container>
       );

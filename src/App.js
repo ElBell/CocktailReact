@@ -47,14 +47,12 @@ export class App extends React.Component {
   };
 
   toggleIngredientSearch = () => {
-    console.log(this.updater.isMounted(this))
-    console.log(this)
     this.setState({ingredientSearch:true})
   };
 
   ButtonIngredientSearch() {
     return (
-      <Button onClick={this.toggleIngredientSearch} variant="outline-light" size="lg" className=" btn-block">
+      <Button onClick={() => this.toggleIngredientSearch()} variant="outline-light" size="lg" className=" btn-block">
         find by ingredient
       </Button>
     );

@@ -34,16 +34,12 @@ export class App extends React.Component {
   };
 
   componentDidMount = async () => {
-    fetch(App.SITE_URL + "drinks")
+    fetch("/drinks")
       .then(response => response.json())
       .then(data => this.setState({drinks: data, totalDrinks: data, loadingDrinks: false}));
-    fetch(App.SITE_URL + "ingredients")
+    fetch( "/ingredients")
       .then(response => response.json())
       .then(data => this.setState({ingredients: data, loadingIngredients: false}))
-  };
-
-  static get SITE_URL() {
-    return "http://localhost:8080/cocktail/";
   };
 
   toggleIngredientSearch = () => {

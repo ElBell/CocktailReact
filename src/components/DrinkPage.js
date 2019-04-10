@@ -4,8 +4,6 @@ import Container from "react-bootstrap/Container";
 import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";
 import {Loading} from "./Loading";
-import {App} from "../App";
-
 
 export class DrinkPage extends React.Component {
   state = {
@@ -22,7 +20,7 @@ export class DrinkPage extends React.Component {
 
   async getDrink() {
     const { id } = await this.props.match.params;
-    fetch(App.SITE_URL + "drinks/" + id)
+    fetch("/drinks/" + id)
       .then(response => response.json())
       .then(data => this.setState({drink: data}));
   }

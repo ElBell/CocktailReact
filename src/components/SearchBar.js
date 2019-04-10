@@ -30,7 +30,7 @@ export class SearchBar extends React.Component {
           </div>
         <div className="input-group-append">
             <span className="input-group-text white" id="basic-text1"
-                  onClick={this.props.onTermSubimit}>
+                  onClick={this.props.onTermSubmit}>
               <i className="fas fa-search"/></span>
         </div>
       </div>

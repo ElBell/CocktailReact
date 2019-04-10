@@ -1,6 +1,6 @@
 import * as React from "react";
 import {ListPage} from "./ListPage";
-import {IngredientPage} from "./IngredientPage";
+import {IngredientPage} from "./IngredientList/IngredientPage";
 import Button from "react-bootstrap/Button";
 import BootstrapSwitchButton from 'bootstrap-switch-button-react'
 

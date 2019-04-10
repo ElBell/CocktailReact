@@ -1,5 +1,6 @@
 import React from "react";
-import {SearchBar} from "./SearchBar";
+import {SearchBar} from "../SearchBar";
+import {IngredientCheckbox} from "./IngredientCheckbox";
 
 export class IngredientPage extends React.Component {
   state = {
@@ -9,6 +10,7 @@ export class IngredientPage extends React.Component {
   };
 
   handleCheckboxChange = (ingredient) => {
+    console.log(this.state.selected);
     if(this.state.selected.includes(ingredient)) {
       this.setState(({ selected }) => {
         const prevSelected = [...selected];
@@ -26,6 +28,7 @@ export class IngredientPage extends React.Component {
   };
 
   handleClick = () => {
+    console.log("hi there");
     if (this.state.selected.length > 0) {
       this.props.searchDrinks(this.state.selected)
     }
@@ -43,7 +46,7 @@ export class IngredientPage extends React.Component {
       <div>
         <SearchBar onTermSubmit={this.handleClick} updateDrinks={this.updateIngredients}/>
         { this.state.ingredients.map(ingredient => {
-        return(<Checkbox
+        return(<IngredientCheckbox
           label={ingredient}
           onCheckboxChange={this.handleCheckboxChange}
           key={ingredient}
@@ -52,21 +55,6 @@ export class IngredientPage extends React.Component {
       </div>
     )}
 }
-
-const Checkbox = ({ label, onCheckboxChange, checked }) => (
-  <div className="form-check">
-    <label>
-      <input
-        type="checkbox"
-        name={label}
-        checked={checked}
-        onChange={() => onCheckboxChange(label)}
-        className="form-check-input"
-      />
-      {label}
-    </label>
-  </div>
-);
 
 function sortBegins(term) {
   return function (a, b) {

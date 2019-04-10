@@ -11,7 +11,7 @@ export const ListItem = ({drink}) => {
             width={64}
             height={64}
             className="mr-3"
-            src= {"/img/" + drink.image}
+            src= {require("../img/drinkimages/" + drink.image)}
             alt="Generic placeholder"
           />
           <Media.Body>

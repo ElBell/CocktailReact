@@ -1,68 +1,14 @@
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+# The Cocktail Compendium
 
-## Available Scripts
 
-In the project directory, you can run:
+Have you ever bought a house that has a bar and suddenly everyone expects you to know how to make cocktails? I have! That's why I'm developing __The Cocktail Compendium__. This app holds detailed information on hundreds of mixed drinks and how to make them. This includes full instructions, ingredients, glass type, and a picture of what you can expect to see. Search for your favorites by name or find a new favorite by entering what ingredients you like the most. If you have a limited number of ingredient options, The Cocktail Compendium will find you options for what to make using what you have. If there's time for just one more trip to the store, the Cocktail Compendium will recommend that last ingredient that could really open up your mix drink options. When you're not sure what you want, scroll through our extensive list of drinks to see if any of their pictures catches your eye. Or let our randomizer choose for you! Either with complete randomness or by setting some restrictions and randomizing from there. This app will even help you stay healthy by telling you calories per drink and letting you search for lower calorie options. Log your drinks in this app to track your calories for the night. And if you enter your sex, height, and weight, the Cocktail Compendium can even extimate your blood alcohol content based on what you've had so far. With a sleek and simple design (*underconstruction*), making Cocktails has never been so easy! 
 
-### `npm start`
+It is both a mobile and desktop app so that you can always have it when you need it. 
 
-Runs the app in the development mode.<br>
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+I'm planning to intigrate a Cocktail API for the details on the cocktails\
+https://www.thecocktaildb.com/faq.php
 
-The page will reload if you make edits.<br>
-You will also see any lint errors in the console.
+Also a nutrition API for getting calorie estimations\
+https://ndb.nal.usda.gov/ndb/doc/index
 
-### `npm test`
-
-Launches the test runner in the interactive watch mode.<br>
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
-
-### `npm run build`
-
-Builds the app for production to the `build` folder.<br>
-It correctly bundles React in production mode and optimizes the build for the best performance.
-
-The build is minified and the filenames include the hashes.<br>
-Your app is ready to be deployed!
-
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
-
-### `npm run eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
-
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (Webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
-
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/code-splitting
-
-### Analyzing the Bundle Size
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size
-
-### Making a Progressive Web App
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app
-
-### Advanced Configuration
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/advanced-configuration
-
-### Deployment
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/deployment
-
-### `npm run build` fails to minify
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify
+Durring development, I'm planning to use a Spring Boot framework, a Flutter or React Bootstrap with TypeScript front-end, and a database back-end.

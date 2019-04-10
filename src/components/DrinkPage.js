@@ -3,7 +3,7 @@ import Image from "react-bootstrap/Image";
 import Container from "react-bootstrap/Container";
 import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";
-import {Loading} from "./Loading";
+import {Loading} from "./Utils/Loading";
 
 export class DrinkPage extends React.Component {
   state = {
@@ -19,8 +19,7 @@ export class DrinkPage extends React.Component {
   };
 
   async getDrink() {
-    const { id } = await this.props.match.params;
-    fetch(id)
+    fetch('drinks/' + this.props.drinkId)
       .then(response => response.json())
       .then(data => this.setState({drink: data}));
   }

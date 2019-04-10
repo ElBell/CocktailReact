@@ -1,5 +1,5 @@
 import * as React from "react";
-import {ListPage} from "./ListPage";
+import {ListPage} from "./DrinkList/ListPage";
 import {IngredientPage} from "./IngredientList/IngredientPage";
 import Button from "react-bootstrap/Button";
 import BootstrapSwitchButton from 'bootstrap-switch-button-react'
@@ -25,7 +25,6 @@ export class SearchIngredient extends React.Component{
   }
 
   searchDrinks = (ingredients) => {
-    console.log(ingredients);
     this.setState({ingredients: ingredients},
       () => {this.getDrinks()}
       )

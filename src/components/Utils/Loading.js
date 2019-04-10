@@ -1,5 +1,6 @@
-import {BeatLoader} from "react-spinners";
+
 import * as React from "react";
+import {BeatLoader} from "react-spinners";
 
 export const Loading = () => {
   return (

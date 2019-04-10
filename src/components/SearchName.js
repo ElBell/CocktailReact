@@ -1,7 +1,7 @@
 import * as React from "react";
-import {ListPage} from "./ListPage";
-import {Loading} from "./Loading";
-import {SearchBar} from "./SearchBar";
+import {ListPage} from "./DrinkList/ListPage";
+import {Loading} from "./Utils/Loading";
+import {SearchBar} from "./Utils/SearchBar";
 
 export class SearchName extends React.Component{
 

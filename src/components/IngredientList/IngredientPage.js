@@ -1,5 +1,5 @@
 import React from "react";
-import {SearchBar} from "../SearchBar";
+import {SearchBar} from "../Utils/SearchBar";
 import {IngredientCheckbox} from "./IngredientCheckbox";
 
 export class IngredientPage extends React.Component {
@@ -10,7 +10,6 @@ export class IngredientPage extends React.Component {
   };
 
   handleCheckboxChange = (ingredient) => {
-    console.log(this.state.selected);
     if(this.state.selected.includes(ingredient)) {
       this.setState(({ selected }) => {
         const prevSelected = [...selected];
@@ -28,7 +27,6 @@ export class IngredientPage extends React.Component {
   };
 
   handleClick = () => {
-    console.log("hi there");
     if (this.state.selected.length > 0) {
       this.props.searchDrinks(this.state.selected)
     }

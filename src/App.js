@@ -3,10 +3,10 @@ import Button from "react-bootstrap/Button";
 import Container from "react-bootstrap/Container";
 import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";
-import {Loading} from "./components/Loading";
+import {Loading} from "./components/Utils/Loading";
 import {SearchName} from "./components/SearchName";
 import {SearchIngredient} from "./components/SearchIngredient";
-import {BackButton} from "./components/BackButton";
+import {BackButton} from "./components/Utils/BackButton";
 
 function Header() {
   return (

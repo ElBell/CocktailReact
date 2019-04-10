@@ -8,7 +8,7 @@ import {App} from "./App";
 import {BrowserRouter as Router, Route} from "react-router-dom";
 import {SearchName} from "./components/SearchName";
 import {DrinkPage} from "./components/DrinkPage";
-import {UnderConstruction} from "./components/UnderConstruction";
+import {UnderConstruction} from "./components/Utils/UnderConstruction";
 import {SearchIngredient} from "./components/SearchIngredient";
 
 

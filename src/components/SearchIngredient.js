@@ -1,8 +1,8 @@
 import * as React from "react";
 import {ListPage} from "./DrinkList/ListPage";
 import {IngredientPage} from "./IngredientList/IngredientPage";
-import Button from "react-bootstrap/Button";
 import BootstrapSwitchButton from 'bootstrap-switch-button-react'
+import {BackButton} from "./Utils/BackButton";
 
 
 export class SearchIngredient extends React.Component{
@@ -30,7 +30,7 @@ export class SearchIngredient extends React.Component{
       )
   };
 
-  handleClick = () => {
+  reset = () => {
     this.setState({drinks: [], ingredients: null })
   };
 
@@ -38,12 +38,12 @@ export class SearchIngredient extends React.Component{
     if (this.state.drinks.length > 0) {
       return (
         <div>
-          <Button variant="light" size="lg" className="btn" onClick={this.handleClick}>Do another search</Button>
-          <ListPage drinks={this.state.drinks}/>
+          <ListPage reset={this.reset} drinks={this.state.drinks}/>
         </div>)
     } else {
       return (
         <div>
+          <BackButton reset={this.props.reset}/>
           <BootstrapSwitchButton
             checked={this.state.limit}
             onlabel='Drink must include all'

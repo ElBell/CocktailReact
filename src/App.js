@@ -6,7 +6,6 @@ import Col from "react-bootstrap/Col";
 import {Loading} from "./components/Utils/Loading";
 import {SearchName} from "./components/SearchName";
 import {SearchIngredient} from "./components/SearchIngredient";
-import {BackButton} from "./components/Utils/BackButton";
 
 function Header() {
   return (
@@ -94,15 +93,13 @@ export class App extends React.Component {
     } else if (this.state.mode === 'name') {
       return (
         <div>
-          <BackButton reset={this.reset}/>
-          <SearchName drinks={this.state.drinks}/>
+          <SearchName reset={this.reset} drinks={this.state.drinks}/>
         </div>
       )
     } else if(this.state.mode === 'ingredient') {
       return (
         <div>
-          <BackButton reset={this.reset}/>
-          <SearchIngredient ingredients={this.state.ingredients}/>
+          <SearchIngredient reset={this.reset} ingredients={this.state.ingredients}/>
         </div>
       )
     }

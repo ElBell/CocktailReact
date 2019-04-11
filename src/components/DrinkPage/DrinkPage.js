@@ -3,7 +3,7 @@ import Image from "react-bootstrap/Image";
 import Container from "react-bootstrap/Container";
 import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";
-import {Loading} from "./Utils/Loading";
+import {Loading} from "../Utils/Loading";
 
 export class DrinkPage extends React.Component {
   state = {
@@ -30,7 +30,7 @@ export class DrinkPage extends React.Component {
       return (
         <Container>
           <DrinkTitle name={drink.name} />
-          <DrinkImage image={require("../img/drinkimages/" + drink.image)} />
+          <DrinkImage image={require("../../img/drinkimages/" + drink.image)} />
           <DrinkDetails drink={drink}/>
         </Container>
       );
@@ -91,7 +91,7 @@ const DrinkGlass = ({glass}) => {
   return (
     <Row className="row justify-content-center">
       <h4>{"<? extends Glass> "}</h4>
-      <Image width={30} height={30} src={require("../img/glassimages/glasses.jpg")} />
+      <Image width={30} height={30} src={require("../../img/glassimages/glasses.jpg")} />
     </Row>
   )
 };

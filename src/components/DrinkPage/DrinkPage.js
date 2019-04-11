@@ -36,7 +36,7 @@ export class DrinkPage extends React.Component {
             <DrinkImage image={require("../../img/drinkimages/" + drink.image)} />
             <DrinkDetails drink={drink}/>
           </Container>
-          [/*<EditButton id={drink.id}/>*/]
+          {/*<EditButton id={drink.id}/>*/}
         </div>
       );
     }

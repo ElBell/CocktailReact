@@ -6,10 +6,12 @@ import "./index.css";
 import * as serviceWorker from "./serviceWorker";
 import {App} from "./App";
 import {BrowserRouter as Router, Route} from "react-router-dom";
+import {DrinkEditPage} from "./components/DrinkPage/DrinkEditPage";
 
 ReactDOM.render(
   <Router>
     <div>
+      <Route path="/drinks/:id" component={DrinkEditPage}/>
       <Route exact path="/" component={App} />
     </div>
   </Router>,

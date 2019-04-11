@@ -1,6 +1,6 @@
 import * as React from "react";
-import {ListPage} from "./DrinkList/ListPage";
-import {Loading} from "./Utils/Loading";
+import {ListPage} from "../DrinkList/ListPage";
+import {Loading} from "../Utils/Loading";
 
 export class SearchName extends React.Component{
 

@@ -1,8 +1,8 @@
 import * as React from "react";
-import {ListPage} from "./DrinkList/ListPage";
-import {IngredientPage} from "./IngredientList/IngredientPage";
+import {ListPage} from "../DrinkList/ListPage";
+import {IngredientPage} from "../IngredientList/IngredientPage";
 import BootstrapSwitchButton from 'bootstrap-switch-button-react'
-import {BackButton} from "./Utils/BackButton";
+import {BackButton} from "../Utils/BackButton";
 
 
 export class SearchIngredient extends React.Component{

@@ -48,9 +48,10 @@ export class SearchIngredient extends React.Component{
             checked={this.state.limit}
             onlabel='Drink must include all'
             offlabel='Drink may include any'
-            offstyle='light'
-            onstyle='light'
+            offstyle='dark'
+            onstyle='dark'
             width='250'
+            height='55'
             onChange={(checked) => {
               this.setState({ limit: checked })
             }}

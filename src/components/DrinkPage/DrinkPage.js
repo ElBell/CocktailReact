@@ -6,6 +6,7 @@ import Col from "react-bootstrap/Col";
 import {Loading} from "../Utils/Loading";
 import {LinkContainer} from "react-router-bootstrap";
 import Button from "react-bootstrap/Button";
+import axios from 'axios';
 
 export class DrinkPage extends React.Component {
   state = {
@@ -21,9 +22,8 @@ export class DrinkPage extends React.Component {
   };
 
   async getDrink() {
-    fetch('drinks/' + this.props.drinkId)
-      .then(response => response.json())
-      .then(data => this.setState({drink: data}));
+    axios.get('drinks/' + this.props.drinkId)
+      .then(({ data }) => {this.setState({drink:data})});
   }
 
   render() {
@@ -36,7 +36,7 @@ export class DrinkPage extends React.Component {
             <DrinkImage image={require("../../img/drinkimages/" + drink.image)} />
             <DrinkDetails drink={drink}/>
           </Container>
-          <EditButton id={drink.id}/>
+          [/*<EditButton id={drink.id}/>*/]
         </div>
       );
     }

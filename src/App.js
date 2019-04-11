@@ -6,6 +6,7 @@ import Col from "react-bootstrap/Col";
 import {Loading} from "./components/Utils/Loading";
 import {SearchName} from "./components/SearchPages/SearchName";
 import {SearchIngredient} from "./components/SearchPages/SearchIngredient";
+import axios from 'axios';
 
 function Header() {
   return (
@@ -51,12 +52,10 @@ export class App extends React.Component {
   }
 
   componentDidMount = async () => {
-    fetch( "/ingredients")
-      .then(response => response.json())
-      .then(data => this.setState({ingredients: data}));
-    fetch("/drinks")
-      .then(response => response.json())
-      .then(data => this.setState({drinks: data, totalDrinks: data, loadingDrinks: false}));
+    axios.get( "/ingredients")
+      .then(({data}) => {this.setState({ingredients: data})});
+    axios.get("/drinks")
+      .then(({data}) => {this.setState({drinks: data, totalDrinks: data, loadingDrinks: false})});
   };
 
   toggleIngredientSearch = () => {

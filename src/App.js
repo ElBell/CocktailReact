@@ -23,7 +23,15 @@ function Header() {
   );
 }
 
-
+function About() {
+  return(
+    <div style={{fontSize:'13px', color:'#b79898', position:'absolute', bottom:'0'}}>
+      <p>Made by Eleonor Bart <br/>
+      Checkout my <a href="https://elbell.github.io/" style={{color:'#9898b7'}}>Github!</a> <br/>
+      All data from <a href="https://www.thecocktaildb.com/api.php" style={{color:'#9898b7'}}>TheCocktailDB</a></p>
+    </div>
+  )
+}
 
 export class App extends React.Component {
   state = {
@@ -106,6 +114,7 @@ export class App extends React.Component {
       <div>
         <Header />
         {this.ButtonRows()}
+        <About />
       </div>
     );
   }

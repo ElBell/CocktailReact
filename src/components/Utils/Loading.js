@@ -7,7 +7,7 @@ export const Loading = () => {
     <div className='sweet-loading align' style={{
       position: 'absolute', left: '50%', top: '50%',
       transform: 'translate(-50%, -50%)'}}>
-      <BeatLoader sizeUnit={"px"} size={70} color={'#fff'}/>
+      <BeatLoader sizeUnit={"px"} size={50} color={'#fff'}/>
     </div>
   )
 };

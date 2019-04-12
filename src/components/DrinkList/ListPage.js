@@ -13,7 +13,7 @@ export class ListPage extends React.Component {
 
   updateDrinks = (term) => {
     this.setState({showingDrinks: this.state.totalDrinks
-        .filter(drink => drink.name.toUpperCase().includes(term.toUpperCase()))});
+        .filter(drink => drink.name.toUpperCase().includes(term.toUpperCase())).sort(sortBegins(term))});
   };
 
   componentWillReceiveProps = (nextProps) => {
@@ -52,5 +52,12 @@ export class ListPage extends React.Component {
 function compare(a, b) {
   // Use toUpperCase() to ignore character casing
   return a.name.toUpperCase().localeCompare(b.name.toUpperCase());
+}
+
+function sortBegins(term) {
+  return function (a, b) {
+    return a.name.toUpperCase().startsWith(term.toUpperCase()) ?
+      (b.name.toUpperCase().startsWith(term.toUpperCase()) ? 0 : -1) : 1
+  }
 }
 

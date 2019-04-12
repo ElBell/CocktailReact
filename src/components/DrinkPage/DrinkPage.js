@@ -4,8 +4,6 @@ import Container from "react-bootstrap/Container";
 import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";
 import {Loading} from "../Utils/Loading";
-import {LinkContainer} from "react-router-bootstrap";
-import Button from "react-bootstrap/Button";
 import axios from 'axios';
 
 export class DrinkPage extends React.Component {
@@ -30,13 +28,16 @@ export class DrinkPage extends React.Component {
     if (!(this.state.drink === null || this.state.drink.ingredients === undefined)) {
       const drink = this.state.drink;
       return (
-        <div>
-          <Container>
+        <div style={{ backgroundSize: 'cover', backgroundImage: `url(${require("../../img/drinkimages/" + drink.image)}`,
+              backgroundPosition: 'center'}}>
+          <div style={{backgroundColor: 'rgba(0, 0, 0, 0.5)'}}>
+          <Container style={{padding:'50px'}}>
             <DrinkTitle name={drink.name} />
             <DrinkImage image={require("../../img/drinkimages/" + drink.image)} />
             <DrinkDetails drink={drink}/>
           </Container>
           {/*<EditButton id={drink.id}/>*/}
+          </div>
         </div>
       );
     }
@@ -44,13 +45,13 @@ export class DrinkPage extends React.Component {
   }
 }
 
-const EditButton = ({id}) => {
-  return(
-    <LinkContainer to={"drinks/" + id}>
-      <Button variant="outline-light" size="sm" className="btn">Edit Drink</Button>
-    </LinkContainer>
-  )
-};
+// const EditButton = ({id}) => {
+//   return(
+//     <LinkContainer to={"drinks/" + id}>
+//       <Button variant="outline-light" size="sm" className="btn">Edit Drink</Button>
+//     </LinkContainer>
+//   )
+// };
 
 const DrinkTitle = ({ name }) => {
   return (

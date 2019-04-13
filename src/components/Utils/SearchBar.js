@@ -17,6 +17,10 @@ export class SearchBar extends React.Component {
       })
   };
 
+  componentDidMount() {
+    this.setState({term: this.props.currentTerm})
+  }
+
   render() {
     return (
       <div className="input-group md-form form-sm form-2 pl-0">

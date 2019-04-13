@@ -9,11 +9,12 @@ export class ListPage extends React.Component {
   state = {
     totalDrinks: this.props.drinks.sort(compare),
     showingDrinks: this.props.drinks.sort(compare),
+    lastTerm: '',
     searchId: null
   };
 
   updateDrinks = (term) => {
-    this.setState({showingDrinks: this.state.totalDrinks
+    this.setState({lastTerm: term, showingDrinks: this.state.totalDrinks
         .filter(drink => drink.name.toUpperCase().includes(term.toUpperCase())).sort(sortBegins(term))});
   };
 
@@ -41,7 +42,7 @@ export class ListPage extends React.Component {
       return (
         <div>
           <BackButton reset={this.props.reset}/>
-          <SearchBar updateDrinks={this.updateDrinks}/>
+          <SearchBar updateDrinks={this.updateDrinks} currentTerm={this.state.lastTerm}/>
           <ScrollManager scrollKey="name-scroll" />
           <div>
             {this.state.showingDrinks.map(drink => {

@@ -12,8 +12,6 @@ import './App.css'
 function Header() {
   return (
     <div>
-      <br />
-      <br />
       <h1
         className="text-center opening"
       >
@@ -47,11 +45,10 @@ export class App extends React.Component {
     const button2 = this.ButtonNameSearch();
     return (
       <Container>
-        <br />
         <Row className="align-items-center">
           <Col>{button1}</Col>
         </Row>
-        <br />
+        <br/>
         <Row className="align-items-center">
           <Col>{button2}</Col>
         </Row>

@@ -13,6 +13,8 @@ Button.opening {
 h1.opening {
     font-size:12vmin;
     font-family: Droid Sans;
+    margin-top: 10%;
+    margin-bottom: 1em;
 }
 
 a.subtle {

@@ -6,6 +6,7 @@ div.details-box {
     font-size:4vmin;
     color:#4d0000;
     background-color:#ffffff;
+    margin: 3% 3% 6%;
 }
 
 div.background-image {
@@ -14,12 +15,16 @@ div.background-image {
 }
 
 div.transparency {
-    background-color: rgba(0, 0, 0, 0.5);
+    background-color: rgba(0, 0, 0, 0.6);
 }
 div.drink-image {
-    margin-bottom:2em;
+    margin-bottom:4%;
 }
 div.drink-info {
     padding:8%;
-    margin-bottom:2em;
+    margin-bottom:4%;
+}
+
+.drink-glass {
+    margin-top: 4%;
 }

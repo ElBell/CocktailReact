@@ -79,17 +79,17 @@ const DrinkDetails = ({ drink }) => {
 const DrinkGlass = ({glass}) => {
   if (glass != null) {
     return (
-        <Row className="row justify-content-center">
+        <div className="drink-glass row justify-content-center">
           <h5>{glass.name}</h5>
           <Image width={30} height={30} src={glass.image} />
-        </Row>
+        </div>
     )
   }
   return (
-    <Row className="row justify-content-center">
+    <div className="drink-glass row justify-content-center">
       <h5>{"Any glass"}</h5>
       <Image width={30} height={30} src={require("../../img/glassimages/glasses.jpg")} />
-    </Row>
+    </div>
   )
 };
 

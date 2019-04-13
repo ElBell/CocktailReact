@@ -14,11 +14,11 @@ export class SearchIngredient extends React.Component{
 
   getDrinks() {
     if (this.state.limit) {
-      fetch("ingredients/limit/" + this.state.ingredients)
+      fetch("https://cocktail-compendium-spring.herokuapp.com/cocktail/ingredients/limit/" + this.state.ingredients)
         .then(response => response.json())
         .then(data => this.setState({drinks: data}))
     } else {
-      fetch("ingredients/include/" + this.state.ingredients)
+      fetch("https://cocktail-compendium-spring.herokuapp.com/cocktail/ingredients/include/" + this.state.ingredients)
         .then(response => response.json())
         .then(data => this.setState({drinks: data}))
     }

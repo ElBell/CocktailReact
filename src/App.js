@@ -106,7 +106,7 @@ export class App extends React.Component {
     } else if(this.state.mode === 'ingredient') {
       return (
         <div>
-          <SearchIngredient reset={this.reset} ingredients={this.state.ingredients}/>
+          <SearchIngredient reset={this.reset} drinks={this.state.drinks} ingredients={this.state.ingredients}/>
         </div>
       )
     }

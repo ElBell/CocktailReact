@@ -4,24 +4,40 @@ import {IngredientPage} from "../IngredientList/IngredientPage";
 import BootstrapSwitchButton from 'bootstrap-switch-button-react'
 import {BackButton} from "../Utils/BackButton";
 
-
 export class SearchIngredient extends React.Component{
   state = {
     limit: false,
+    totalDrinks: [],
     drinks: [],
     ingredients:null
   };
 
+  componentDidMount = async () => {
+    const totalDrinks = await this.props.drinks;
+    this.setState({totalDrinks: totalDrinks})
+  };
+
   getDrinks() {
-    if (this.state.limit) {
-      fetch("https://cocktail-compendium-spring.herokuapp.com/cocktail/ingredients/limit/" + this.state.ingredients)
-        .then(response => response.json())
-        .then(data => this.setState({drinks: data}))
-    } else {
-      fetch("https://cocktail-compendium-spring.herokuapp.com/cocktail/ingredients/include/" + this.state.ingredients)
-        .then(response => response.json())
-        .then(data => this.setState({drinks: data}))
+    let drinks = this.state.limit ? this.getLimitDrinks([]) : this.getIncludeDrinks([]);
+    this.setState({drinks})
+  }
+  getLimitDrinks(newDrinks) {
+    for(let drink of this.state.totalDrinks) {
+      let names = drink.ingredients.map(i => i.name.toUpperCase());
+      if(this.state.ingredients.every( ingredient => names.includes(ingredient.toUpperCase()))) {
+        newDrinks.push(drink)
+      }
     }
+    return newDrinks;
+  }
+  getIncludeDrinks(newDrinks) {
+    for (let drink of this.state.totalDrinks) {
+      let names = drink.ingredients.map(i => i.name.toUpperCase());
+      if (this.state.ingredients.some( ingredient => names.includes(ingredient.toUpperCase()))) {
+        newDrinks.push(drink)
+      }
+    }
+    return newDrinks;
   }
 
   searchDrinks = (ingredients) => {
@@ -31,7 +47,7 @@ export class SearchIngredient extends React.Component{
   };
 
   reset = () => {
-    this.setState({drinks: [], ingredients: null })
+    this.setState({drinks: [], ingredients: null})
   };
 
   render() {
@@ -61,4 +77,5 @@ export class SearchIngredient extends React.Component{
         )
     }
   }
+
 }

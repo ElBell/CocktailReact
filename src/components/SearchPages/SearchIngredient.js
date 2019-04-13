@@ -3,6 +3,7 @@ import {ListPage} from "../DrinkList/ListPage";
 import {IngredientPage} from "../IngredientList/IngredientPage";
 import BootstrapSwitchButton from 'bootstrap-switch-button-react'
 import {BackButton} from "../Utils/BackButton";
+import axios from "axios";
 
 
 export class SearchIngredient extends React.Component{
@@ -14,13 +15,11 @@ export class SearchIngredient extends React.Component{
 
   getDrinks() {
     if (this.state.limit) {
-      fetch("https://cocktail-compendium-spring.herokuapp.com/cocktail/ingredients/limit/" + this.state.ingredients)
-        .then(response => response.json())
-        .then(data => this.setState({drinks: data}))
+      axios.get( "https://cocktail-compendium-spring.herokuapp.com/cocktail/ingredients/limit" + this.state.ingredients)
+        .then(({data}) => {this.setState({drinks: data})});
     } else {
-      fetch("https://cocktail-compendium-spring.herokuapp.com/cocktail/ingredients/include/" + this.state.ingredients)
-        .then(response => response.json())
-        .then(data => this.setState({drinks: data}))
+      axios.get( "https://cocktail-compendium-spring.herokuapp.com/cocktail/ingredients/include" + this.state.ingredients)
+        .then(({data}) => {this.setState({drinks: data})});
     }
   }
 

@@ -42,7 +42,6 @@
     "not ie <= 11",
     "not op_mini all"
   ],
-
   "babel": {
     "presets": [
       "@babel/preset-env",

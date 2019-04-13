@@ -1,0 +1,20 @@
+
+div.about {
+    font-size:3vmin;
+    color:#b79898;
+    position:absolute;
+    bottom:0;
+}
+
+Button.opening {
+    font-size:5vmin;
+}
+
+h1.opening {
+    font-size:12vmin;
+    font-family: Droid Sans;
+}
+
+a.subtle {
+    color:#9898b7;
+}

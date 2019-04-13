@@ -2,8 +2,8 @@ import React from "react";
 import Image from "react-bootstrap/Image";
 import Container from "react-bootstrap/Container";
 import Row from "react-bootstrap/Row";
-import Col from "react-bootstrap/Col";
 import {Loading} from "../Utils/Loading";
+import './DrinkPage.css'
 import axios from 'axios';
 
 export class DrinkPage extends React.Component {
@@ -28,15 +28,13 @@ export class DrinkPage extends React.Component {
     if (!(this.state.drink === null || this.state.drink.ingredients === undefined)) {
       const drink = this.state.drink;
       return (
-        <div style={{ backgroundSize: 'cover', backgroundImage: `url(${require("../../img/drinkimages/" + drink.image)}`,
-              backgroundPosition: 'center'}}>
-          <div style={{backgroundColor: 'rgba(0, 0, 0, 0.5)'}}>
+        <div className='background-image' style={{ backgroundImage: `url(${require("../../img/drinkimages/" + drink.image)}`}}>
+          <div className='transparency'>
           <Container style={{padding:'8%'}}>
             <DrinkTitle name={drink.name} />
             <DrinkImage image={require("../../img/drinkimages/" + drink.image)} />
             <DrinkDetails drink={drink}/>
           </Container>
-          {/*<EditButton id={drink.id}/>*/}
           </div>
         </div>
       );
@@ -49,7 +47,7 @@ const DrinkTitle = ({ name }) => {
     <div>
       <br />
       <Row className="row justify-content-center align-self-center">
-        <h1 style={{ fontSize: "10vmin" }}>{name}</h1>
+        <h1 className='drink-title'>{name}</h1>
       </Row>
       <br />
     </div>
@@ -71,13 +69,12 @@ const DrinkDetails = ({ drink }) => {
   return (
     <div>
     <Row className="row justify-content-center align-self-center">
-      <Col className="col justify-content-center"
-           style={{ fontSize: "6vmin", color: "#4d0000", backgroundColor: "#ffffff"}}>
+      <div className="details-box col justify-content-center">
         <br/>
         <DrinkGlass glass={drink.glass} />
         <DrinkIngredients ingredients={drink.ingredients} />
         <DrinkInstructions instructions={drink.instructions}/>
-      </Col>
+      </div>
     </Row><br /><br />
     </div>
   )

@@ -7,6 +7,7 @@ import {Loading} from "./components/Utils/Loading";
 import {SearchName} from "./components/SearchPages/SearchName";
 import {SearchIngredient} from "./components/SearchPages/SearchIngredient";
 import axios from 'axios';
+import './App.css'
 
 function Header() {
   return (
@@ -14,8 +15,7 @@ function Header() {
       <br />
       <br />
       <h1
-        className="text-center"
-        style={{ fontSize: '12vmin', fontFamily: "Droid Sans" }}
+        className="text-center opening"
       >
         Cocktail Compendium
       </h1>
@@ -25,10 +25,10 @@ function Header() {
 
 function About() {
   return(
-    <div style={{fontSize:'3vmin', color:'#b79898', position:'absolute', bottom:'0'}}>
+    <div className='about'>
       <p>Made by Eleonor Bart <br/>
-      Checkout my <a href="https://elbell.github.io/" style={{color:'#9898b7'}}>Github!</a> <br/>
-      All data from <a href="https://www.thecocktaildb.com/api.php" style={{color:'#9898b7'}}>TheCocktailDB</a></p>
+      Checkout my <a href="https://elbell.github.io/" className='subtle'>Github!</a> <br/>
+      All data from <a href="https://www.thecocktaildb.com/api.php" className='subtle'>TheCocktailDB</a></p>
     </div>
   )
 }
@@ -72,7 +72,7 @@ export class App extends React.Component {
 
   ButtonIngredientSearch() {
     return (
-      <Button onClick={() => this.toggleIngredientSearch()} variant="outline-light" size="lg" className=" btn-block">
+      <Button onClick={() => this.toggleIngredientSearch()} variant="outline-light" size="lg" className="opening btn-block">
         find by ingredient
       </Button>
     );
@@ -84,7 +84,7 @@ export class App extends React.Component {
 
   ButtonNameSearch() {
     return (
-      <Button onClick={this.toggleNameSearch} variant="outline-light" size="lg" className=" btn-block">
+      <Button onClick={this.toggleNameSearch} variant="outline-light" size="lg" className="opening btn-block">
         find by name
       </Button>
     );

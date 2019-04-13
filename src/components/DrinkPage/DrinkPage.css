@@ -1,0 +1,22 @@
+h1.drink-title {
+    font-size:10vmin;
+}
+
+div.details-box {
+    font-size:6vmin;
+    color:#4d0000;
+    background-color:#ffffff;
+}
+
+div.background-image {
+    background-size:cover;
+    background-position: center;
+}
+
+div.transparency {
+    background-color: rgba(0, 0, 0, 0.5);
+}
+
+Container.image {
+    padding:8%;
+}

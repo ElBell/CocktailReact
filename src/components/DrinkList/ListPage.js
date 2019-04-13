@@ -3,6 +3,7 @@ import { ListItem } from "./ListItem";
 import {DrinkPage} from "../DrinkPage/DrinkPage";
 import {BackButton} from "../Utils/BackButton";
 import {SearchBar} from "../Utils/SearchBar";
+import ScrollManager from "../Utils/ScrollManager";
 
 export class ListPage extends React.Component {
   state = {
@@ -41,10 +42,14 @@ export class ListPage extends React.Component {
         <div>
           <BackButton reset={this.props.reset}/>
           <SearchBar updateDrinks={this.updateDrinks}/>
-          {this.state.showingDrinks.map(drink => {
-          return <ListItem key={drink.id} drink={drink} setId={this.setId}/>;
-      })}
-        </div>)
+          <ScrollManager scrollKey="name-scroll" />
+          <div>
+            {this.state.showingDrinks.map(drink => {
+              return <ListItem key={drink.id} drink={drink} setId={this.setId}/>;
+            })}
+          </div>
+        </div>
+      )
     }
   }
 }

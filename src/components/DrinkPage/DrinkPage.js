@@ -31,7 +31,7 @@ export class DrinkPage extends React.Component {
         <div style={{ backgroundSize: 'cover', backgroundImage: `url(${require("../../img/drinkimages/" + drink.image)}`,
               backgroundPosition: 'center'}}>
           <div style={{backgroundColor: 'rgba(0, 0, 0, 0.5)'}}>
-          <Container style={{padding:'50px'}}>
+          <Container style={{padding:'8%'}}>
             <DrinkTitle name={drink.name} />
             <DrinkImage image={require("../../img/drinkimages/" + drink.image)} />
             <DrinkDetails drink={drink}/>
@@ -49,7 +49,7 @@ const DrinkTitle = ({ name }) => {
     <div>
       <br />
       <Row className="row justify-content-center align-self-center">
-        <h1 style={{ fontSize: "50px" }}>{name}</h1>
+        <h1 style={{ fontSize: "10vmin" }}>{name}</h1>
       </Row>
       <br />
     </div>
@@ -63,7 +63,6 @@ const DrinkImage = ({ image }) => {
         <Image width={132} height={132} src={image} roundedCircle />
       </Row>
       <br />
-      <br />
     </div>
   );
 };
@@ -73,7 +72,7 @@ const DrinkDetails = ({ drink }) => {
     <div>
     <Row className="row justify-content-center align-self-center">
       <Col className="col justify-content-center"
-           style={{ fontSize: "25px", color: "#4d0000", backgroundColor: "#ffffff"}}>
+           style={{ fontSize: "6vmin", color: "#4d0000", backgroundColor: "#ffffff"}}>
         <br/>
         <DrinkGlass glass={drink.glass} />
         <DrinkIngredients ingredients={drink.ingredients} />

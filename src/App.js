@@ -15,7 +15,7 @@ function Header() {
       <br />
       <h1
         className="text-center"
-        style={{ fontSize: 50, fontFamily: "Droid Sans" }}
+        style={{ fontSize: '12vmin', fontFamily: "Droid Sans" }}
       >
         Cocktail Compendium
       </h1>
@@ -25,7 +25,7 @@ function Header() {
 
 function About() {
   return(
-    <div style={{fontSize:'13px', color:'#b79898', position:'absolute', bottom:'0'}}>
+    <div style={{fontSize:'3vmin', color:'#b79898', position:'absolute', bottom:'0'}}>
       <p>Made by Eleonor Bart <br/>
       Checkout my <a href="https://elbell.github.io/" style={{color:'#9898b7'}}>Github!</a> <br/>
       All data from <a href="https://www.thecocktaildb.com/api.php" style={{color:'#9898b7'}}>TheCocktailDB</a></p>

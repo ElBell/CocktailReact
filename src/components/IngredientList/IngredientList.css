@@ -44,12 +44,13 @@ label.checked_label::before {
     transition: background-color .2s;
 }
 
+/* Translate elements horizontally */
 label.checked_label:first-of-type {
-    transform: translateX(-40px);
+     transform: translateX(10px);
 }
 
 label.checked_label:last-of-type {
-    transform: translateX(40px);
+    transform: translateX(-10px);
 }
 
 label.checked_label:hover, input.checked_input:focus + label.checked_label {

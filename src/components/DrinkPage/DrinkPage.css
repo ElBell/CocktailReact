@@ -3,7 +3,7 @@ h1.drink-title {
 }
 
 div.details-box {
-    font-size:6vmin;
+    font-size:4vmin;
     color:#4d0000;
     background-color:#ffffff;
 }
@@ -16,7 +16,10 @@ div.background-image {
 div.transparency {
     background-color: rgba(0, 0, 0, 0.5);
 }
-
-Container.image {
+div.drink-image {
+    margin-bottom:2em;
+}
+div.drink-info {
     padding:8%;
+    margin-bottom:2em;
 }

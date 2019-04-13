@@ -30,11 +30,11 @@ export class DrinkPage extends React.Component {
       return (
         <div className='background-image' style={{ backgroundImage: `url(${require("../../img/drinkimages/" + drink.image)}`}}>
           <div className='transparency'>
-          <Container style={{padding:'8%'}}>
+          <div className='container drink-info'>
             <DrinkTitle name={drink.name} />
             <DrinkImage image={require("../../img/drinkimages/" + drink.image)} />
             <DrinkDetails drink={drink}/>
-          </Container>
+          </div>
           </div>
         </div>
       );
@@ -45,22 +45,19 @@ export class DrinkPage extends React.Component {
 const DrinkTitle = ({ name }) => {
   return (
     <div>
-      <br />
       <Row className="row justify-content-center align-self-center">
         <h1 className='drink-title'>{name}</h1>
       </Row>
-      <br />
     </div>
   );
 };
 
 const DrinkImage = ({ image }) => {
   return (
-    <div>
+    <div className='drink-image'>
       <Row className="row justify-content-center align-self-center">
         <Image width={132} height={132} src={image} roundedCircle />
       </Row>
-      <br />
     </div>
   );
 };
@@ -70,12 +67,11 @@ const DrinkDetails = ({ drink }) => {
     <div>
     <Row className="row justify-content-center align-self-center">
       <div className="details-box col justify-content-center">
-        <br/>
         <DrinkGlass glass={drink.glass} />
         <DrinkIngredients ingredients={drink.ingredients} />
         <DrinkInstructions instructions={drink.instructions}/>
       </div>
-    </Row><br /><br />
+    </Row>
     </div>
   )
 };
@@ -84,14 +80,14 @@ const DrinkGlass = ({glass}) => {
   if (glass != null) {
     return (
         <Row className="row justify-content-center">
-          <h3>{glass.name}</h3>
+          <h5>{glass.name}</h5>
           <Image width={30} height={30} src={glass.image} />
         </Row>
     )
   }
   return (
     <Row className="row justify-content-center">
-      <h4>{"<? extends Glass> "}</h4>
+      <h5>{"Any glass"}</h5>
       <Image width={30} height={30} src={require("../../img/glassimages/glasses.jpg")} />
     </Row>
   )
@@ -111,7 +107,7 @@ const DrinkIngredients = ({ingredients}) => {
 const DrinkInstructions = ({instructions}) => {
   return (
     <div>
-      <h4>{instructions}</h4>
+      <h5>{instructions}</h5>
       <br/>
     </div>
   )

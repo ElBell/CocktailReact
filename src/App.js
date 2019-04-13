@@ -60,9 +60,9 @@ export class App extends React.Component {
   }
 
   componentDidMount = async () => {
-    axios.get( "/ingredients")
+    axios.get( "https://cocktail-compendium-spring.herokuapp.com/cocktail/ingredients")
       .then(({data}) => {this.setState({ingredients: data})});
-    axios.get("/drinks")
+    axios.get("https://cocktail-compendium-spring.herokuapp.com/cocktail/drinks")
       .then(({data}) => {this.setState({drinks: data, totalDrinks: data, loadingDrinks: false})});
   };
 

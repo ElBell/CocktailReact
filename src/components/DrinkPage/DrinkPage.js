@@ -20,7 +20,7 @@ export class DrinkPage extends React.Component {
   };
 
   async getDrink() {
-    axios.get('drinks/' + this.props.drinkId)
+    axios.get('https://cocktail-compendium-spring.herokuapp.com/cocktail/drinks/' + this.props.drinkId)
       .then(({ data }) => {this.setState({drink:data})});
   }
 
@@ -44,15 +44,6 @@ export class DrinkPage extends React.Component {
     return <Loading />;
   }
 }
-
-// const EditButton = ({id}) => {
-//   return(
-//     <LinkContainer to={"drinks/" + id}>
-//       <Button variant="outline-light" size="sm" className="btn">Edit Drink</Button>
-//     </LinkContainer>
-//   )
-// };
-
 const DrinkTitle = ({ name }) => {
   return (
     <div>

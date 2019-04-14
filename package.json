@@ -32,7 +32,8 @@
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
-    "eject": "react-scripts eject"
+    "eject": "react-scripts eject",
+    "cypress": "cypress open"
   },
   "eslintConfig": {
     "extends": "react-app"
@@ -53,6 +54,6 @@
     ]
   },
   "devDependencies": {
-    "bootstrap-switch-button-react": "^1.0.0"
+    "cypress": "^3.2.0"
   }
 }

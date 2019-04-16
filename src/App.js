@@ -69,7 +69,7 @@ export class App extends React.Component {
 
   ButtonIngredientSearch() {
     return (
-      <Button onClick={() => this.toggleIngredientSearch()} variant="outline-light" size="lg" className="opening btn-block">
+      <Button onClick={() => this.toggleIngredientSearch()} variant="outline-light" size="lg" className="ingredient opening btn-block">
         find by ingredient
       </Button>
     );
@@ -81,7 +81,7 @@ export class App extends React.Component {
 
   ButtonNameSearch() {
     return (
-      <Button onClick={this.toggleNameSearch} variant="outline-light" size="lg" className="opening btn-block">
+      <Button onClick={this.toggleNameSearch} variant="outline-light" size="lg" className="names opening btn-block">
         find by name
       </Button>
     );

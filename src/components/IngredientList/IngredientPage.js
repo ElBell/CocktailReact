@@ -41,7 +41,7 @@ export class IngredientPage extends React.Component {
 
   render() {
     return (
-      <div>
+      <div className="ingredients">
         <SearchBar onTermSubmit={this.handleClick} updateDrinks={this.updateIngredients}/>
         { this.state.ingredients.map(ingredient => {
         return(<IngredientCheckbox

@@ -20,3 +20,11 @@ h1.opening {
 a.subtle {
     color:#9898b7;
 }
+
+div.top-bar {
+    background: #4d0000;
+}
+
+Button.close {
+    margin-bottom: 0;
+}

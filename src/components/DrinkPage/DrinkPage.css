@@ -28,3 +28,7 @@ div.drink-info {
 .drink-glass {
     margin-top: 4%;
 }
+
+div.medium {
+    font-size: 4vmin;
+}

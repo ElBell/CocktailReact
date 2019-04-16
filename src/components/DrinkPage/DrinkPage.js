@@ -79,14 +79,14 @@ const DrinkGlass = ({glass}) => {
   if (glass != null) {
     return (
         <div className="drink-glass row justify-content-center">
-          <h5>{glass.name}</h5>
+          <div className="medium">{glass.name}</div>
           <Image width={30} height={30} src={glass.image} />
         </div>
     )
   }
   return (
     <div className="drink-glass row justify-content-center">
-      <h5>{"Any glass"}</h5>
+      <div className="medium">{"Any glass"}</div>
       <Image width={30} height={30} src={require("../../img/glassimages/glasses.jpg")} />
     </div>
   )
@@ -106,7 +106,7 @@ const DrinkIngredients = ({ingredients}) => {
 const DrinkInstructions = ({instructions}) => {
   return (
     <div>
-      <h5>{instructions}</h5>
+      <div className="medium">{instructions}</div>
       <br/>
     </div>
   )

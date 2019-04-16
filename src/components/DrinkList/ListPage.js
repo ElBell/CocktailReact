@@ -4,6 +4,8 @@ import {DrinkPage} from "../DrinkPage/DrinkPage";
 import {BackButton} from "../Utils/BackButton";
 import {SearchBar} from "../Utils/SearchBar";
 import ScrollManager from "../Utils/ScrollManager";
+import { StickyContainer, Sticky } from 'react-sticky';
+
 
 export class ListPage extends React.Component {
   state = {
@@ -40,16 +42,18 @@ export class ListPage extends React.Component {
       )
     } else {
       return (
-        <div>
-          <BackButton reset={this.props.reset}/>
-          <SearchBar updateDrinks={this.updateDrinks} currentTerm={this.state.lastTerm}/>
+        <StickyContainer>
+          <Sticky>{({ style }) => <div style={style} className="top-bar">
+            <BackButton reset={this.props.reset}/>
+            <SearchBar updateDrinks={this.updateDrinks} currentTerm={this.state.lastTerm}/>
+          </div>}</Sticky>
           <ScrollManager scrollKey="name-scroll" />
           <div>
             {this.state.showingDrinks.map(drink => {
               return <ListItem key={drink.id} drink={drink} setId={this.setId}/>;
             })}
           </div>
-        </div>
+        </StickyContainer>
       )
     }
   }

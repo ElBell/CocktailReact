@@ -23,7 +23,7 @@ export class SearchBar extends React.Component {
 
   render() {
     return (
-      <div className="input-group md-form form-sm form-2 pl-0">
+      <div className="input-group md-form form-md form-2 pl-0" style={{margin:5}}>
         <input className="form-control my-0 py-1 white" type="text" placeholder="Search" aria-label="Search"
                onChange={event => this.onTermChange(event)}
                value={this.state.term}/>
